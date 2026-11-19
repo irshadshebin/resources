@@ -19,13 +19,13 @@
   .wrap { width: 100%; max-width: 480px; }
   .profile { text-align: center; margin-bottom: 28px; }
   .profile img {
-    width: 88px; height: 88px; border-radius: 50%; object-fit: cover;
-    border: 3px solid #107C41; box-shadow: 0 10px 25px rgba(16,124,65,0.18);
+    width: 90px; height: 90px; border-radius: 50%; object-fit: cover;
+    box-shadow: 0 10px 24px rgba(15,23,42,0.12);
   }
   .profile h1 { font-size: 22px; font-weight: 800; margin-top: 12px; }
   .profile p { font-size: 13px; font-weight: 600; color: #475569; margin-top: 4px; }
   .card {
-    background: #FFFFFF; border-radius: 20px; padding: 22px;
+    background: #FFFFFF; border-radius: 20px; padding: 24px;
     border: 1.5px solid #D1FAE5;
     box-shadow: 0 16px 38px rgba(15,23,42,0.07);
     margin-bottom: 24px;
@@ -36,27 +36,31 @@
     padding: 5px 11px; border-radius: 999px; margin-bottom: 10px;
   }
   .card h2 { font-size: 20px; font-weight: 800; line-height: 1.25; }
-  .card p { font-size: 13.5px; color: #475569; line-height: 1.5; margin: 8px 0 18px; }
+  .card p { font-size: 13.5px; color: #475569; line-height: 1.5; margin: 8px 0 20px; }
   .btn {
-    display: block; width: 100%; text-align: center; text-decoration: none;
-    font-weight: 800; font-size: 14.5px; padding: 14px 18px; border-radius: 12px;
-    margin-bottom: 11px;
-    background: #107C41; color: #FFFFFF;
-    box-shadow: 0 8px 20px rgba(16,124,65,0.22);
-    transition: transform 0.15s ease, background 0.15s ease;
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    width: 100%; text-align: center; text-decoration: none;
+    font-weight: 800; font-size: 15px; padding: 15px 20px; border-radius: 12px;
+    margin-bottom: 12px; cursor: pointer;
+    background: linear-gradient(180deg, #138D4A 0%, #107C41 100%);
+    color: #FFFFFF;
+    border: 1px solid #0E6B38;
+    border-bottom: 4px solid #094D28;
+    box-shadow: 0 6px 16px rgba(16,124,65,0.24);
+    transition: transform 0.1s ease, box-shadow 0.1s ease, filter 0.15s ease;
   }
-  .btn:hover { background: #0D6635; transform: translateY(-1px); }
+  .btn:hover { filter: brightness(1.05); transform: translateY(-1px); }
+  .btn:active { transform: translateY(2px); border-bottom-width: 2px; box-shadow: 0 2px 8px rgba(16,124,65,0.2); }
   .btn:last-child { margin-bottom: 0; }
   .footer { text-align: center; margin-top: 28px; }
   .footer-label { font-size: 13px; color: #475569; font-weight: 700; margin-bottom: 12px; }
-  .socials { display: flex; justify-content: center; gap: 14px; }
-  .social-btn {
-    width: 44px; height: 44px; border-radius: 12px; background: #FFFFFF;
-    border: 1.5px solid #D1FAE5; display: inline-flex; align-items: center;
-    justify-content: center; box-shadow: 0 6px 16px rgba(15,23,42,0.06);
-    transition: transform 0.15s ease, border-color 0.15s ease;
+  .socials { display: flex; justify-content: center; gap: 18px; }
+  .social-link {
+    display: inline-flex; align-items: center; justify-content: center;
+    text-decoration: none; transition: transform 0.15s ease;
   }
-  .social-btn:hover { transform: translateY(-2px); border-color: #107C41; }
+  .social-link img { width: 28px; height: 28px; object-fit: contain; display: block; }
+  .social-link:hover { transform: scale(1.12); }
 </style>
 </head>
 <body>
@@ -71,18 +75,24 @@
       <span class="badge">FREE RESOURCE</span>
       <h2>Master Excel Dashboard</h2>
       <p>Build a live executive Sales &amp; Profit Dashboard with dynamic Slicers, KPI cards, and 1-click refresh.</p>
-      <a class="btn" href="Master_Excel_Dashboard_Tutorial_Guide.pdf" download>Download Step-by-Step PDF Guide</a>
-      <a class="btn" href="Master_Excel_Dashboard_Practice.xlsx" download>Download Practice Excel File (.xlsx)</a>
+      <a class="btn" href="Master_Excel_Dashboard_Tutorial_Guide.pdf" download>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download Step-by-Step PDF Guide
+      </a>
+      <a class="btn" href="Master_Excel_Dashboard_Practice.xlsx" download>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download Practice Excel File (.xlsx)
+      </a>
     </div>
 
     <div class="footer">
       <div class="footer-label">Follow @irshadshebin</div>
       <div class="socials">
-        <a class="social-btn" href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="#0A66C2"><path d="M19 3A2 2 0 0 1 21 5V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V5A2 2 0 0 1 5 3H19M18.5 18.5V13.2A3.26 3.26 0 0 0 15.24 9.94C14.39 9.94 13.4 10.46 12.92 11.24V10.13H10.13V18.5H12.92V13.57C12.92 12.8 13.54 12.17 14.31 12.17A1.4 1.4 0 0 1 15.71 13.57V18.5H18.5M6.88 8.56A1.68 1.68 0 0 0 8.56 6.88C8.56 5.95 7.81 5.19 6.88 5.19A1.69 1.69 0 0 0 5.19 6.88C5.19 7.81 5.95 8.56 6.88 8.56M8.27 18.5V10.13H5.5V18.5H8.27Z"/></svg>
+        <a class="social-link" href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <img src="linkedin.png" alt="LinkedIn" />
         </a>
-        <a class="social-btn" href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="#E1306C"><path d="M7.8 2H16.2C19.4 2 22 4.6 22 7.8V16.2A5.8 5.8 0 0 1 16.2 22H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2M7.6 4A3.6 3.6 0 0 0 4 7.6V16.4C4 18.39 5.61 20 7.6 20H16.4A3.6 3.6 0 0 0 20 16.4V7.6C20 5.61 18.39 4 16.4 4H7.6M17.25 5.5A1.25 1.25 0 0 1 18.5 6.75A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75A1.25 1.25 0 0 1 17.25 5.5M12 7A5 5 0 0 1 17 12A5 5 0 0 1 12 17A5 5 0 0 1 7 12A5 5 0 0 1 12 7M12 9A3 3 0 0 0 9 12A3 3 0 0 0 12 15A3 3 0 0 0 15 12A3 3 0 0 0 12 9Z"/></svg>
+        <a class="social-link" href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
+          <img src="instagram.png" alt="Instagram" />
         </a>
       </div>
     </div>
