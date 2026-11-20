@@ -80,7 +80,7 @@ content:
         default: Irshad Shebin
       - name: profileTagline
         label: 3. Profile — Bio Subline
-        type: string
+        type: text
         default: Finance | Accounting | Taxation
 
       - name: showSearchFilter
