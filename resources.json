@@ -18,16 +18,12 @@
       ]
     }
   ],
-  "profileImage": "profile.png",
   "profileName": "Irshad Shebin",
   "profileTagline": "Finance | Accounting | Taxation",
   "showSearchFilter": true,
-  "showViewAllBtn": true,
   "viewAllBtnText": "View All Free Resources",
-  "showPortfolioLink": true,
   "portfolioBtnText": "View My Portfolio & CV",
   "portfolioUrl": "https://github.io",
-  "showConsultationCta": true,
   "consultationBadge": "1-ON-1 CONSULTATION",
   "consultationTitle": "Need Tax, GST, or Excel Help?",
   "consultationDesc": "Book a 1-on-1 consultation or message directly on WhatsApp.",
@@ -35,20 +31,21 @@
   "consultationUrl": "https://wa.me",
   "showFooterSocials": true,
   "footerText": "Follow @irshadshebin",
-  "showLinkedin": true,
-  "linkedinUrl": "https://linkedin.com/in/irshadshebin",
-  "showInstagram": true,
-  "instagramUrl": "https://www.instagram.com/irshadshebin?jplx=MTlzYmJ0bHk5MHhuZg==",
-  "showThreads": true,
-  "threadsUrl": "https://threads.net",
-  "showYoutube": false,
-  "youtubeUrl": "https://youtube.com",
-  "showFacebook": true,
-  "facebookUrl": "https://facebook.com",
-  "showX": false,
-  "xUrl": "https://x.com",
-  "showTelegram": false,
-  "telegramUrl": "https://t.me",
-  "showGithub": false,
-  "githubUrl": "https://github.com"
+  "socialsList": [
+    {
+      "platform": "facebook",
+      "enabled": true,
+      "url": "https://www.facebook.com/share/1KbHtQHRxT/"
+    },
+    {
+      "platform": "threads",
+      "enabled": true,
+      "url": "https://www.threads.com/@irshadshebin"
+    },
+    {
+      "platform": "gmail",
+      "enabled": true,
+      "url": "irshadshbn7@gmail.com"
+    }
+  ]
 }
