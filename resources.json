@@ -15,6 +15,22 @@
           "url": "PASTE_YOUR_EXCEL_URL_HERE"
         }
       ]
+    },
+    {
+      "id": "gd",
+      "badge": "FREE RESOURCE",
+      "title": "dgb",
+      "description": "fdgb",
+      "buttons": [
+        {
+          "label": "dfgb",
+          "url": "bdf"
+        },
+        {
+          "label": "fgb",
+          "url": "fdb"
+        }
+      ]
     }
   ]
 }
