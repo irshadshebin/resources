@@ -144,10 +144,13 @@
         if (query) list = list.filter(i => (i.title + ' ' + i.description + ' ' + (i.category || '')).toLowerCase().includes(query));
       }
       list.forEach(item => {
-        const btns = (item.buttons || []).map(b => {
-          const isExt = b.url.startsWith('http');
-          return `<a class="btn" href="${b.url}" target="_blank" rel="noopener" ${isExt ? '' : 'download onclick="document.getElementById(\'dl-tip\').style.display=\'block\'"'}>${icon}<span>${b.label}</span></a>`;
+                const btns = (item.buttons || []).map(b => {
+          const rawTarget = b.file || b.url || '#';
+          const cleanUrl = rawTarget.replace(/^\/+/, '');
+          const isExt = cleanUrl.startsWith('http');
+          return `<a class="btn" href="${cleanUrl}" target="_blank" rel="noopener" ${isExt ? '' : 'download onclick="document.getElementById(\'dl-tip\').style.display=\'block\'"'}>${icon}<span>${b.label}</span></a>`;
         }).join('');
+
         box.innerHTML += `<div id="${item.id}" class="card"><span class="badge">${item.badge || 'FREE RESOURCE'}</span><h2>${item.title}</h2><p>${item.description}</p>${btns}</div>`;
       });
       if (selectedId && showViewAll) {
