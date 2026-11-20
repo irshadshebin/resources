@@ -1,4 +1,9 @@
 {
+  "profileImage": "profile.png",
+  "profileName": "Irshad Shebin",
+  "profileTagline": "Finance | Accounting | Taxation",
+  "showViewAllBtn": false,
+  "viewAllBtnText": "View All Free Resources",
   "footerText": "Follow @irshadshebin",
   "linkedinUrl": "https://linkedin.com/in/irshadshebin",
   "instagramUrl": "https://www.instagram.com/irshadshebin?jplx=MTlzYmJ0bHk5MHhuZg==",
