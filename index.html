@@ -87,7 +87,7 @@
     color: #107C41; background: #ECFDF5; border: 1px solid #A7F3D0;
     padding: 10px 12px; border-radius: 12px; margin-bottom: 18px;
   }
-  .portfolio-wrap { text-align: center; margin-bottom: 22px; }
+  .pill-wrap { text-align: center; margin-bottom: 22px; }
   .portfolio-pill {
     display: inline-flex; align-items: center; gap: 6px;
     font-size: 13px; font-weight: 700; color: #107C41; text-decoration: none;
@@ -118,70 +118,72 @@
 
     <div id="dl-tip" class="dl-tip">Downloading file... If inside Instagram/Facebook browser, tap <b>⋮</b> → <b>Open in Chrome/Safari</b> if download doesn't start.</div>
 
-    <div id="cards-container"></div>
-    <div id="consult-container"></div>
-    <div id="portfolio-wrap" class="portfolio-wrap" style="display:none;"></div>
+    <div id="dynamic-sections"></div>
 
     <div id="footer-section" class="footer">
       <div class="footer-label" id="footer-label">Follow @irshadshebin</div>
-      <div class="socials">
-        <a class="social-link" id="linkedin-link" href="https://linkedin.com" rel="noopener" aria-label="LinkedIn">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="#0A66C2"><path d="M19 3A2 2 0 0 1 21 5V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V5A2 2 0 0 1 5 3H19M18.5 18.5V13.2A3.26 3.26 0 0 0 15.24 9.94C14.39 9.94 13.4 10.46 12.92 11.24V10.13H10.13V18.5H12.92V13.57C12.92 12.8 13.54 12.17 14.31 12.17A1.4 1.4 0 0 1 15.71 13.57V18.5H18.5M6.88 8.56A1.68 1.68 0 0 0 8.56 6.88C8.56 5.95 7.81 5.19 6.88 5.19A1.69 1.69 0 0 0 5.19 6.88C5.19 7.81 5.95 8.56 6.88 8.56M8.27 18.5V10.13H5.5V18.5H8.27Z"/></svg>
-        </a>
-        <a class="social-link" id="instagram-link" href="https://instagram.com" rel="noopener" aria-label="Instagram">
-          <svg width="28" height="28" viewBox="0 0 24 24" xmlns="http://w3.org"><defs><radialGradient id="ig-official" cx="30%" cy="107%" r="150%"><stop offset="0%" stop-color="#fdf497"/><stop offset="5%" stop-color="#fdf497"/><stop offset="45%" stop-color="#fd5949"/><stop offset="60%" stop-color="#d6249f"/><stop offset="90%" stop-color="#285AEB"/></radialGradient></defs><rect x="2" y="2" width="20" height="20" rx="5.5" fill="url(#ig-official)"/><rect x="5.2" y="5.2" width="13.6" height="13.6" rx="3.8" fill="none" stroke="#FFFFFF" stroke-width="1.8"/><circle cx="12" cy="12" r="3.3" fill="none" stroke="#FFFFFF" stroke-width="1.8"/><circle cx="16.2" cy="7.8" r="1.1" fill="#FFFFFF"/></svg>
-        </a>
-        <a class="social-link" id="threads-link" href="https://threads.net" rel="noopener" aria-label="Threads">
-          <svg width="28" height="28" viewBox="0 0 24 24" xmlns="http://w3.org"><rect x="2" y="2" width="20" height="20" rx="5.5" fill="#0F172A"/><path d="M15.7 11.4c-.1-.1-.3-.2-.4-.2-.2-2.2-1.4-3.5-3.6-3.5-1.3 0-2.4.5-3.1 1.5l1.2.8c.5-.7 1.1-1 1.9-1 1.3 0 2 .7 2.2 2-.7-.1-1.4-.2-2.2-.2-2.1 0-3.5 1.1-3.5 2.7 0 1.6 1.3 2.7 3.1 2.7 1.6 0 2.8-.7 3.3-2 .3-.6.4-1.3.4-2.1.5.3.8.8.8 1.4 0 1.6-1.4 2.9-3.6 2.9-2.5 0-4.3-1.7-4.3-4.3 0-2.6 1.8-4.4 4.3-4.4 2.1 0 3.7 1.2 4.1 3.1l1.4-.3C17.4 7.7 15.3 6 12.3 6 9 6 6.6 8.4 6.6 12c0 3.6 2.4 5.9 5.7 5.9 3 0 5-1.9 5-4.3 0-1-.5-1.8-1.6-2.2zm-4.1 3.4c-1 0-1.7-.5-1.7-1.3 0-.8.8-1.3 2.1-1.3.7 0 1.3.1 1.9.2-.1 1.5-1 2.4-2.3 2.4z" fill="#FFFFFF"/></svg>
-        </a>
-        <a class="social-link" id="youtube-link" href="https://youtube.com" rel="noopener" aria-label="YouTube" style="display:none;">
-          <svg width="28" height="28" viewBox="0 0 24 24" xmlns="http://w3.org"><rect x="2" y="4.5" width="20" height="15" rx="4.5" fill="#FF0033"/><polygon points="10,8.5 16,12 10,15.5" fill="#FFFFFF"/></svg>
-        </a>
-        <a class="social-link" id="facebook-link" href="https://facebook.com" rel="noopener" aria-label="Facebook" style="display:none;">
-          <svg width="28" height="28" viewBox="0 0 24 24" xmlns="http://w3.org"><circle cx="12" cy="12" r="10" fill="#0866FF"/><path d="M15.1 12.7l.4-2.7h-2.6V8.3c0-.7.4-1.4 1.5-1.4h1.2V4.6s-1.1-.2-2.1-.2c-2.1 0-3.5 1.3-3.5 3.6v2H7.7v2.7h2.3v6.5h2.9v-6.5h2.2z" fill="#FFFFFF"/></svg>
-        </a>
-        <a class="social-link" id="x-link" href="https://x.com" rel="noopener" aria-label="X" style="display:none;">
-          <svg width="28" height="28" viewBox="0 0 24 24" xmlns="http://w3.org"><rect x="2" y="2" width="20" height="20" rx="5.5" fill="#0F172A"/><path d="M13.3 10.9L17.8 5.7h-1.1l-3.9 4.5-3.1-4.5H6l4.7 6.8L6 18h1.1l4.1-4.8 3.3 4.8h3.7l-4.9-7.1zm-1.5 1.7l-.5-.7-3.8-5.4h1.6l3.1 4.4.5.7 4 5.7h-1.6l-3.3-4.7z" fill="#FFFFFF"/></svg>
-        </a>
-        <a class="social-link" id="telegram-link" href="https://t.me" rel="noopener" aria-label="Telegram" style="display:none;">
-          <svg width="28" height="28" viewBox="0 0 24 24" xmlns="http://w3.org"><circle cx="12" cy="12" r="10" fill="#26A5E4"/><path d="M16.9 7.8L6.5 11.8c-.7.3-.7.7-.1.9l2.7.8 6.2-3.9c.3-.2.6-.1.3.1l-5 4.5-.2 2.8c.3 0 .4-.1.6-.3l1.3-1.3 2.7 2c.5.3.9.1 1-.5l1.8-8.5c.2-.7-.3-1-.9-.7z" fill="#FFFFFF"/></svg>
-        </a>
-        <a class="social-link" id="github-link" href="https://github.com" rel="noopener" aria-label="GitHub" style="display:none;">
-          <svg width="28" height="28" viewBox="0 0 24 24" xmlns="http://w3.org"><circle cx="12" cy="12" r="10" fill="#181717"/><path fill-rule="evenodd" clip-rule="evenodd" d="M12 6.2c-3.3 0-6 2.7-6 6 0 2.6 1.7 4.9 4.1 5.7.3.1.4-.1.4-.3v-1.1c-1.7.4-2-.8-2-.8-.3-.7-.7-.9-.7-.9-.6-.4 0-.4 0-.4.6 0 1 .7 1 .7.6 1 1.5.7 1.8.5.1-.4.2-.7.4-.9-1.3-.2-2.7-.7-2.7-3 0-.7.2-1.2.6-1.6-.1-.2-.3-.8.1-1.6 0 0 .5-.2 1.6.6.5-.1 1-.2 1.5-.2.5 0 1 .1 1.5.2 1.1-.8 1.6-.6 1.6-.6.3.8.1 1.4.1 1.6.4.4.6 1 .6 1.6 0 2.3-1.4 2.8-2.7 3 .2.2.4.6.4 1.2v1.7c0 .2.1.4.4.3 2.4-.8 4.1-3.1 4.1-5.7 0-3.3-2.7-6-6-6z" fill="#FFFFFF"/></svg>
-        </a>
-      </div>
+      <div class="socials" id="socials-container"></div>
     </div>
   </div>
   <script>
     const icon = '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>';
-    let allItems = [], activeCat = 'All', query = '';
+    const socialIcons = {
+      linkedin: '<svg width="28" height="28" viewBox="0 0 24 24" fill="#0A66C2"><path d="M19 3A2 2 0 0 1 21 5V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V5A2 2 0 0 1 5 3H19M18.5 18.5V13.2A3.26 3.26 0 0 0 15.24 9.94C14.39 9.94 13.4 10.46 12.92 11.24V10.13H10.13V18.5H12.92V13.57C12.92 12.8 13.54 12.17 14.31 12.17A1.4 1.4 0 0 1 15.71 13.57V18.5H18.5M6.88 8.56A1.68 1.68 0 0 0 8.56 6.88C8.56 5.95 7.81 5.19 6.88 5.19A1.69 1.69 0 0 0 5.19 6.88C5.19 7.81 5.95 8.56 6.88 8.56M8.27 18.5V10.13H5.5V18.5H8.27Z"/></svg>',
+      instagram: '<svg width="28" height="28" viewBox="0 0 24 24"><defs><radialGradient id="ig-official" cx="30%" cy="107%" r="150%"><stop offset="0%" stop-color="#fdf497"/><stop offset="5%" stop-color="#fdf497"/><stop offset="45%" stop-color="#fd5949"/><stop offset="60%" stop-color="#d6249f"/><stop offset="90%" stop-color="#285AEB"/></radialGradient></defs><rect x="2" y="2" width="20" height="20" rx="5.5" fill="url(#ig-official)"/><rect x="5.2" y="5.2" width="13.6" height="13.6" rx="3.8" fill="none" stroke="#FFFFFF" stroke-width="1.8"/><circle cx="12" cy="12" r="3.3" fill="none" stroke="#FFFFFF" stroke-width="1.8"/><circle cx="16.2" cy="7.8" r="1.1" fill="#FFFFFF"/></svg>',
+      threads: '<svg width="28" height="28" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5.5" fill="#0F172A"/><path d="M15.7 11.4c-.1-.1-.3-.2-.4-.2-.2-2.2-1.4-3.5-3.6-3.5-1.3 0-2.4.5-3.1 1.5l1.2.8c.5-.7 1.1-1 1.9-1 1.3 0 2 .7 2.2 2-.7-.1-1.4-.2-2.2-.2-2.1 0-3.5 1.1-3.5 2.7 0 1.6 1.3 2.7 3.1 2.7 1.6 0 2.8-.7 3.3-2 .3-.6.4-1.3.4-2.1.5.3.8.8.8 1.4 0 1.6-1.4 2.9-3.6 2.9-2.5 0-4.3-1.7-4.3-4.3 0-2.6 1.8-4.4 4.3-4.4 2.1 0 3.7 1.2 4.1 3.1l1.4-.3C17.4 7.7 15.3 6 12.3 6 9 6 6.6 8.4 6.6 12c0 3.6 2.4 5.9 5.7 5.9 3 0 5-1.9 5-4.3 0-1-.5-1.8-1.6-2.2zm-4.1 3.4c-1 0-1.7-.5-1.7-1.3 0-.8.8-1.3 2.1-1.3.7 0 1.3.1 1.9.2-.1 1.5-1 2.4-2.3 2.4z" fill="#FFFFFF"/></svg>',
+      gmail: '<svg width="28" height="28" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="3.5" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/><path d="M4.5 18V9.2L12 14.8l7.5-5.6V18h-2.8v-5.3L12 16.2l-4.7-3.5V18H4.5z" fill="#EA4335"/><path d="M4.5 9.2V7.8c0-1.1 1.2-1.7 2.1-1L12 10.9l5.4-4.1c.9-.7 2.1-.1 2.1 1v1.4L12 14.8 4.5 9.2z" fill="#EA4335"/><path d="M4.5 9.2V18h2.8v-5.3L4.5 9.2z" fill="#4285F4"/><path d="M19.5 9.2V18h-2.8v-5.3l2.8-3.5z" fill="#34A853"/><path d="M16.7 7.3L19.5 9.2V7.8c0-1.1-1.2-1.7-2.1-1l-.7.5z" fill="#FBBC05"/></svg>',
+      youtube: '<svg width="28" height="28" viewBox="0 0 24 24"><rect x="2" y="4.5" width="20" height="15" rx="4.5" fill="#FF0033"/><polygon points="10,8.5 16,12 10,15.5" fill="#FFFFFF"/></svg>',
+      facebook: '<svg width="28" height="28" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#0866FF"/><path d="M15.1 12.7l.4-2.7h-2.6V8.3c0-.7.4-1.4 1.5-1.4h1.2V4.6s-1.1-.2-2.1-.2c-2.1 0-3.5 1.3-3.5 3.6v2H7.7v2.7h2.3v6.5h2.9v-6.5h2.2z" fill="#FFFFFF"/></svg>',
+      x: '<svg width="28" height="28" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5.5" fill="#0F172A"/><path d="M13.3 10.9L17.8 5.7h-1.1l-3.9 4.5-3.1-4.5H6l4.7 6.8L6 18h1.1l4.1-4.8 3.3 4.8h3.7l-4.9-7.1zm-1.5 1.7l-.5-.7-3.8-5.4h1.6l3.1 4.4.5.7 4 5.7h-1.6l-3.3-4.7z" fill="#FFFFFF"/></svg>',
+      telegram: '<svg width="28" height="28" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#26A5E4"/><path d="M16.9 7.8L6.5 11.8c-.7.3-.7.7-.1.9l2.7.8 6.2-3.9c.3-.2.6-.1.3.1l-5 4.5-.2 2.8c.3 0 .4-.1.6-.3l1.3-1.3 2.7 2c.5.3.9.1 1-.5l1.8-8.5c.2-.7-.3-1-.9-.7z" fill="#FFFFFF"/></svg>',
+      github: '<svg width="28" height="28" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#181717"/><path fill-rule="evenodd" clip-rule="evenodd" d="M12 6.2c-3.3 0-6 2.7-6 6 0 2.6 1.7 4.9 4.1 5.7.3.1.4-.1.4-.3v-1.1c-1.7.4-2-.8-2-.8-.3-.7-.7-.9-.7-.9-.6-.4 0-.4 0-.4.6 0 1 .7 1 .7.6 1 1.5.7 1.8.5.1-.4.2-.7.4-.9-1.3-.2-2.7-.7-2.7-3 0-.7.2-1.2.6-1.6-.1-.2-.3-.8.1-1.6 0 0 .5-.2 1.6.6.5-.1 1-.2 1.5-.2.5 0 1 .1 1.5.2 1.1-.8 1.6-.6 1.6-.6.3.8.1 1.4.1 1.6.4.4.6 1 .6 1.6 0 2.3-1.4 2.8-2.7 3 .2.2.4.6.4 1.2v1.7c0 .2.1.4.4.3 2.4-.8 4.1-3.1 4.1-5.7 0-3.3-2.7-6-6-6z" fill="#FFFFFF"/></svg>'
+    };
+    let pageData = {}, allItems = [], activeCat = 'All', query = '';
 
-    function renderCards(selectedId, showViewAll, viewAllText) {
-      const box = document.getElementById('cards-container');
-      box.innerHTML = '';
+    function buildCardsHtml(selectedId) {
       let list = selectedId ? allItems.filter(i => i.id === selectedId) : allItems;
       if (!selectedId) {
         if (activeCat !== 'All') list = list.filter(i => (i.category || 'General') === activeCat);
         if (query) list = list.filter(i => (i.title + ' ' + i.description + ' ' + (i.category || '')).toLowerCase().includes(query));
       }
-      const hasPill = Boolean(selectedId && showViewAll);
-      list.forEach((item, idx) => {
-        const isLastWithPill = hasPill && idx === list.length - 1;
+      return list.map(item => {
         const btns = (item.buttons || []).map(b => {
           const rawTarget = b.file || b.url || '#';
           const cleanUrl = rawTarget.replace(/^\/+/, '');
-          const isExt = cleanUrl.startsWith('http');
+          const isExt = cleanUrl.startsWith('http') || cleanUrl.startsWith('mailto:');
           return `<a class="btn" href="${cleanUrl}" target="_blank" rel="noopener" ${isExt ? '' : 'download onclick="document.getElementById(\'dl-tip\').style.display=\'block\'"'}>${icon}<span>${b.label}</span></a>`;
         }).join('');
-        box.innerHTML += `<div id="${item.id}" class="card" ${isLastWithPill ? 'style="margin-bottom:0;"' : ''}><span class="badge">${item.badge || 'FREE RESOURCE'}</span><h2>${item.title}</h2><p>${item.description}</p>${btns}</div>`;
-      });
+        return `<div id="${item.id}" class="card"><span class="badge">${item.badge || 'FREE RESOURCE'}</span><h2>${item.title}</h2><p>${item.description}</p>${btns}</div>`;
+      }).join('');
+    }
 
-      if (hasPill) {
-        box.innerHTML += `<div style="text-align:center;margin:20px 0;"><a class="portfolio-pill" href="./"><span>${viewAllText || 'View All Free Resources'}</span><span>→</span></a></div>`;
-      }
+    function renderAllSections(selectedId) {
+      const container = document.getElementById('dynamic-sections');
+      container.innerHTML = '';
+      const defaultOrder = [
+        { section: 'cards', enabled: true },
+        { section: 'viewAllBtn', enabled: true },
+        { section: 'consultation', enabled: Boolean(pageData.showConsultationCta) },
+        { section: 'portfolioBtn', enabled: pageData.showPortfolioLink !== false }
+      ];
+      const order = (pageData.sectionsOrder && pageData.sectionsOrder.length) ? pageData.sectionsOrder : defaultOrder;
+
+      order.forEach(entry => {
+        if (entry.enabled === false) return;
+        if (entry.section === 'cards') {
+          container.innerHTML += buildCardsHtml(selectedId);
+        } else if (entry.section === 'viewAllBtn' && selectedId) {
+          container.innerHTML += `<div class="pill-wrap"><a class="portfolio-pill" href="./"><span>${pageData.viewAllBtnText || 'View All Free Resources'}</span><span>→</span></a></div>`;
+        } else if (entry.section === 'consultation') {
+          container.innerHTML += `<div class="card consult-card"><span class="badge">${pageData.consultationBadge || '1-ON-1 CONSULTATION'}</span><h2>${pageData.consultationTitle || 'Need Tax, GST, or Excel Help?'}</h2><p>${pageData.consultationDesc || 'Book a 1-on-1 consultation or message directly on WhatsApp.'}</p><a class="btn" href="${pageData.consultationUrl || '#'}" target="_blank" rel="noopener"><span>${pageData.consultationBtnText || 'Chat on WhatsApp'}</span></a></div>`;
+        } else if (entry.section === 'portfolioBtn') {
+          container.innerHTML += `<div class="pill-wrap"><a class="portfolio-pill" href="${pageData.portfolioUrl || 'https://github.io'}" target="_blank" rel="noopener"><span>${pageData.portfolioBtnText || 'View My Portfolio & CV'}</span><span>↗</span></a></div>`;
+        }
+      });
     }
 
     fetch('resources.json?v=' + Date.now()).then(r => r.json()).then(data => {
+      pageData = data;
       if (data.profileImage) document.getElementById('profile-img').src = data.profileImage.replace(/^\/+/, '');
       if (data.profileName) { document.getElementById('profile-name').textContent = data.profileName; document.getElementById('profile-img').alt = data.profileName; }
       if (data.profileTagline) document.getElementById('profile-tagline').textContent = data.profileTagline;
@@ -190,32 +192,22 @@
         document.getElementById('footer-section').style.display = 'none';
       } else {
         if (data.footerText) document.getElementById('footer-label').textContent = data.footerText;
-        const socialsMap = [
-          { id: 'linkedin-link', show: data.showLinkedin !== false, url: data.linkedinUrl },
-          { id: 'instagram-link', show: data.showInstagram !== false, url: data.instagramUrl },
-          { id: 'threads-link', show: data.showThreads !== false, url: data.threadsUrl },
-          { id: 'youtube-link', show: Boolean(data.showYoutube), url: data.youtubeUrl },
-          { id: 'facebook-link', show: Boolean(data.showFacebook), url: data.facebookUrl },
-          { id: 'x-link', show: Boolean(data.showX), url: data.xUrl },
-          { id: 'telegram-link', show: Boolean(data.showTelegram), url: data.telegramUrl },
-          { id: 'github-link', show: Boolean(data.showGithub), url: data.githubUrl }
+        const socialsBox = document.getElementById('socials-container');
+        const list = (data.socialsList && data.socialsList.length) ? data.socialsList : [
+          { platform: 'instagram', enabled: true, url: data.instagramUrl || 'https://instagram.com' },
+          { platform: 'linkedin', enabled: true, url: data.linkedinUrl || 'https://linkedin.com' },
+          { platform: 'threads', enabled: true, url: data.threadsUrl || 'https://threads.net' }
         ];
-        socialsMap.forEach(s => {
-          const el = document.getElementById(s.id);
-          if (!el) return;
-          if (s.show) {
-            el.style.display = 'inline-flex';
-            if (s.url) el.href = s.url;
-          } else {
-            el.style.display = 'none';
+        list.forEach(s => {
+          if (s.enabled !== false && socialIcons[s.platform] && s.url) {
+            const href = (s.platform === 'gmail' && !s.url.startsWith('mailto:') && !s.url.startsWith('http')) ? 'mailto:' + s.url : s.url;
+            socialsBox.innerHTML += `<a class="social-link" href="${href}" rel="noopener" aria-label="${s.platform}">${socialIcons[s.platform]}</a>`;
           }
         });
       }
 
       allItems = data.items || [];
       const selectedId = window.location.hash.replace('#', '');
-      const showViewAll = data.showViewAllBtn !== false;
-      const viewAllText = data.viewAllBtnText;
 
       if (!selectedId && data.showSearchFilter) {
         document.getElementById('search-section').style.display = 'block';
@@ -229,27 +221,17 @@
             activeCat = c;
             document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('active'));
             btn.classList.add('active');
-            renderCards('', showViewAll, viewAllText);
+            renderAllSections('');
           };
           pillsBox.appendChild(btn);
         });
         document.getElementById('search-input').oninput = e => {
           query = e.target.value.toLowerCase();
-          renderCards('', showViewAll, viewAllText);
+          renderAllSections('');
         };
       }
 
-      if (data.showConsultationCta) {
-        document.getElementById('consult-container').innerHTML = `<div class="card consult-card"><span class="badge">${data.consultationBadge || '1-ON-1 CONSULTATION'}</span><h2>${data.consultationTitle || 'Need Tax, GST, or Excel Help?'}</h2><p>${data.consultationDesc || 'Book a 1-on-1 consultation or message directly on WhatsApp.'}</p><a class="btn" href="${data.consultationUrl || '#'}" target="_blank" rel="noopener"><span>${data.consultationBtnText || 'Chat on WhatsApp'}</span></a></div>`;
-      }
-
-      if (data.showPortfolioLink !== false) {
-        const pWrap = document.getElementById('portfolio-wrap');
-        pWrap.style.display = 'block';
-        pWrap.innerHTML = `<a class="portfolio-pill" href="${data.portfolioUrl || 'https://github.io'}" target="_blank" rel="noopener"><span>${data.portfolioBtnText || 'View My Portfolio & CV'}</span><span>↗</span></a>`;
-      }
-
-      renderCards(selectedId, showViewAll, viewAllText);
+      renderAllSections(selectedId);
     });
   </script>
 </body>
