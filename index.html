@@ -4,6 +4,13 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Irshad Shebin — Free Excel & Finance Resources</title>
+<meta name="description" content="Free Excel Dashboards, Accounting Templates, and Taxation Guides by Irshad Shebin." />
+<meta property="og:title" content="Irshad Shebin — Free Excel & Finance Resources" />
+<meta property="og:description" content="Download free Excel dashboards, practice files, and step-by-step finance & taxation guides." />
+<meta property="og:image" content="https://github.io" />
+<meta property="og:url" content="https://github.io" />
+<meta property="og:type" content="website" />
+<link rel="icon" type="image/png" href="profile.png" />
 <link href="https://googleapis.com" rel="stylesheet">
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -18,26 +25,43 @@
     justify-content: center;
   }
   .wrap { width: 100%; max-width: 480px; }
-  .profile { text-align: center; margin-bottom: 26px; }
+  .profile { text-align: center; margin-bottom: 22px; }
   .profile img {
     width: 90px; height: 90px; border-radius: 50%; object-fit: cover;
     box-shadow: 0 10px 24px rgba(15,23,42,0.12);
   }
   .profile h1 { font-size: 22px; font-weight: 800; margin-top: 12px; }
   .profile p { font-size: 13px; font-weight: 600; color: #475569; margin-top: 4px; }
+  .search-wrap { margin-bottom: 18px; }
+  .search-input {
+    width: 100%; padding: 12px 16px; border-radius: 14px;
+    border: 1.5px solid #D1FAE5; background: #FFFFFF;
+    font-family: inherit; font-size: 14px; color: #0F172A;
+    box-shadow: 0 4px 12px rgba(15,23,42,0.04); outline: none;
+  }
+  .search-input:focus { border-color: #107C41; }
+  .cat-pills { display: flex; gap: 8px; overflow-x: auto; padding: 10px 0 4px; scrollbar-width: none; }
+  .cat-pills::-webkit-scrollbar { display: none; }
+  .cat-pill {
+    background: #FFFFFF; color: #475569; border: 1.5px solid #D1FAE5;
+    padding: 6px 14px; border-radius: 999px; font-size: 12.5px; font-weight: 700;
+    cursor: pointer; white-space: nowrap; transition: all 0.15s ease;
+  }
+  .cat-pill.active { background: #107C41; color: #FFFFFF; border-color: #107C41; }
   .card {
     background: #FFFFFF; border-radius: 20px; padding: 24px 20px;
     border: 1.5px solid #D1FAE5;
     box-shadow: 0 16px 38px rgba(15,23,42,0.07);
-    margin-bottom: 24px;
+    margin-bottom: 22px;
     text-align: left;
     scroll-margin-top: 24px;
-    transition: border-color 0.4s ease, box-shadow 0.4s ease;
   }
-  .card.highlight {
-    border-color: #107C41;
-    box-shadow: 0 16px 40px rgba(16,124,65,0.22);
+  .consult-card {
+    background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+    color: #FFFFFF; border: none;
   }
+  .consult-card h2 { color: #FFFFFF !important; }
+  .consult-card p { color: #CBD5E1 !important; }
   .badge {
     display: inline-block; background: #ECFDF5; color: #107C41;
     font-size: 11px; font-weight: 800; letter-spacing: 0.8px;
@@ -57,81 +81,122 @@
   }
   .btn:hover { filter: brightness(1.05); transform: translateY(-1px); }
   .btn:last-child { margin-bottom: 0; }
+  .dl-tip {
+    display: none; text-align: center; font-size: 12px; font-weight: 600;
+    color: #107C41; background: #ECFDF5; border: 1px solid #A7F3D0;
+    padding: 10px 12px; border-radius: 12px; margin-bottom: 18px;
+  }
   .footer { text-align: center; margin-top: 28px; }
   .footer-label { font-size: 13px; color: #475569; font-weight: 700; margin-bottom: 12px; }
   .socials { display: flex; justify-content: center; gap: 12px; }
   .social-link { display: inline-flex; transition: transform 0.15s ease; }
   .social-link:hover { transform: scale(1.12); }
+  .portfolio-pill {
+    display: inline-block; margin-top: 16px; font-size: 12.5px; font-weight: 700;
+    color: #107C41; text-decoration: none; padding: 6px 14px;
+    border-radius: 999px; background: rgba(255,255,255,0.8); border: 1px solid #D1FAE5;
+  }
 </style>
 </head>
 <body>
   <div class="wrap">
-        <div class="profile">
+    <div class="profile">
       <img id="profile-img" src="profile.png" alt="Irshad Shebin" />
       <h1 id="profile-name">Irshad Shebin</h1>
       <p id="profile-tagline">Finance &nbsp;|&nbsp; Accounting &nbsp;|&nbsp; Taxation</p>
     </div>
 
-    <div id="cards-container"></div>
+    <div id="search-section" class="search-wrap" style="display:none;">
+      <input id="search-input" class="search-input" type="text" placeholder="Search Excel, GST, Income Tax, templates..." />
+      <div id="cat-pills" class="cat-pills"></div>
+    </div>
 
-        <div class="footer">
+    <div id="dl-tip" class="dl-tip">Downloading file... If inside Instagram/Facebook browser, tap <b>⋮</b> → <b>Open in Chrome/Safari</b> if download doesn't start.</div>
+
+    <div id="cards-container"></div>
+    <div id="consult-container"></div>
+
+    <div class="footer">
       <div class="footer-label" id="footer-label">Follow @irshadshebin</div>
       <div class="socials">
         <a class="social-link" id="linkedin-link" href="https://linkedin.com" rel="noopener" aria-label="LinkedIn">
           <svg width="28" height="28" viewBox="0 0 24 24" fill="#0A66C2"><path d="M19 3A2 2 0 0 1 21 5V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V5A2 2 0 0 1 5 3H19M18.5 18.5V13.2A3.26 3.26 0 0 0 15.24 9.94C14.39 9.94 13.4 10.46 12.92 11.24V10.13H10.13V18.5H12.92V13.57C12.92 12.8 13.54 12.17 14.31 12.17A1.4 1.4 0 0 1 15.71 13.57V18.5H18.5M6.88 8.56A1.68 1.68 0 0 0 8.56 6.88C8.56 5.95 7.81 5.19 6.88 5.19A1.69 1.69 0 0 0 5.19 6.88C5.19 7.81 5.95 8.56 6.88 8.56M8.27 18.5V10.13H5.5V18.5H8.27Z"/></svg>
         </a>
         <a class="social-link" id="instagram-link" href="https://instagram.com" rel="noopener" aria-label="Instagram">
-          <svg width="28" height="28" viewBox="0 0 24 24" xmlns="http://w3.org">
-            <defs>
-              <radialGradient id="ig-official" cx="30%" cy="107%" r="150%">
-                <stop offset="0%" stop-color="#fdf497"/>
-                <stop offset="5%" stop-color="#fdf497"/>
-                <stop offset="45%" stop-color="#fd5949"/>
-                <stop offset="60%" stop-color="#d6249f"/>
-                <stop offset="90%" stop-color="#285AEB"/>
-              </radialGradient>
-            </defs>
-            <rect x="2" y="2" width="20" height="20" rx="5.5" fill="url(#ig-official)"/>
-            <rect x="5.2" y="5.2" width="13.6" height="13.6" rx="3.8" fill="none" stroke="#FFFFFF" stroke-width="1.8"/>
-            <circle cx="12" cy="12" r="3.3" fill="none" stroke="#FFFFFF" stroke-width="1.8"/>
-            <circle cx="16.2" cy="7.8" r="1.1" fill="#FFFFFF"/>
-          </svg>
+          <svg width="28" height="28" viewBox="0 0 24 24" xmlns="http://w3.org"><defs><radialGradient id="ig-official" cx="30%" cy="107%" r="150%"><stop offset="0%" stop-color="#fdf497"/><stop offset="5%" stop-color="#fdf497"/><stop offset="45%" stop-color="#fd5949"/><stop offset="60%" stop-color="#d6249f"/><stop offset="90%" stop-color="#285AEB"/></radialGradient></defs><rect x="2" y="2" width="20" height="20" rx="5.5" fill="url(#ig-official)"/><rect x="5.2" y="5.2" width="13.6" height="13.6" rx="3.8" fill="none" stroke="#FFFFFF" stroke-width="1.8"/><circle cx="12" cy="12" r="3.3" fill="none" stroke="#FFFFFF" stroke-width="1.8"/><circle cx="16.2" cy="7.8" r="1.1" fill="#FFFFFF"/></svg>
         </a>
       </div>
+      <div id="portfolio-wrap"></div>
     </div>
   </div>
 
-        <script>
+  <script>
     const icon = '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>';
+    let allItems = [], activeCat = 'All', query = '';
+
+    function renderCards(selectedId, showViewAll, viewAllText) {
+      const box = document.getElementById('cards-container');
+      box.innerHTML = '';
+      let list = selectedId ? allItems.filter(i => i.id === selectedId) : allItems;
+      if (!selectedId) {
+        if (activeCat !== 'All') list = list.filter(i => (i.category || 'General') === activeCat);
+        if (query) list = list.filter(i => (i.title + ' ' + i.description + ' ' + (i.category || '')).toLowerCase().includes(query));
+      }
+      list.forEach(item => {
+        const btns = (item.buttons || []).map(b => {
+          const isExt = b.url.startsWith('http');
+          return `<a class="btn" href="${b.url}" target="_blank" rel="noopener" ${isExt ? '' : 'download onclick="document.getElementById(\'dl-tip\').style.display=\'block\'"'}>${icon}<span>${b.label}</span></a>`;
+        }).join('');
+        box.innerHTML += `<div id="${item.id}" class="card"><span class="badge">${item.badge || 'FREE RESOURCE'}</span><h2>${item.title}</h2><p>${item.description}</p>${btns}</div>`;
+      });
+      if (selectedId && showViewAll) {
+        box.innerHTML += `<div style="text-align:center;margin:20px 0 8px;"><a href="./" style="display:inline-flex;align-items:center;gap:6px;background:#FFFFFF;color:#107C41;border:1.5px solid #A7F3D0;padding:10px 20px;border-radius:999px;font-weight:700;font-size:13.5px;text-decoration:none;box-shadow:0 4px 12px rgba(15,23,42,0.05);"><span>${viewAllText || 'View All Free Resources'}</span><span>→</span></a></div>`;
+      }
+    }
+
     fetch('resources.json?v=' + Date.now()).then(r => r.json()).then(data => {
       if (data.profileImage) document.getElementById('profile-img').src = data.profileImage.replace(/^\/+/, '');
-      if (data.profileName) {
-        document.getElementById('profile-name').textContent = data.profileName;
-        document.getElementById('profile-img').alt = data.profileName;
-      }
+      if (data.profileName) { document.getElementById('profile-name').textContent = data.profileName; document.getElementById('profile-img').alt = data.profileName; }
       if (data.profileTagline) document.getElementById('profile-tagline').textContent = data.profileTagline;
       if (data.footerText) document.getElementById('footer-label').textContent = data.footerText;
       if (data.linkedinUrl) document.getElementById('linkedin-link').href = data.linkedinUrl;
       if (data.instagramUrl) document.getElementById('instagram-link').href = data.instagramUrl;
 
+      allItems = data.items || [];
       const selectedId = window.location.hash.replace('#', '');
-      const itemsToShow = selectedId
-        ? (data.items || []).filter(item => item.id === selectedId)
-        : (data.items || []);
 
-      const box = document.getElementById('cards-container');
-      itemsToShow.forEach(item => {
-        const btns = (item.buttons || []).map(b => `<a class="btn" href="${b.url}" ${b.url.startsWith('http') ? 'target="_blank" rel="noopener"' : 'download'}>${icon}<span>${b.label}</span></a>`).join('');
-        box.innerHTML += `<div id="${item.id}" class="card"><span class="badge">${item.badge || 'FREE RESOURCE'}</span><h2>${item.title}</h2><p>${item.description}</p>${btns}</div>`;
-      });
-
-      const showBtn = data.showViewAllBtn !== false;
-      if (selectedId && showBtn) {
-        const btnLabel = data.viewAllBtnText || 'View All Free Resources';
-        box.innerHTML += `<div style="text-align:center;margin:20px 0 8px;"><a href="./" style="display:inline-flex;align-items:center;gap:6px;background:#FFFFFF;color:#107C41;border:1.5px solid #A7F3D0;padding:10px 20px;border-radius:999px;font-weight:700;font-size:13.5px;text-decoration:none;box-shadow:0 4px 12px rgba(15,23,42,0.05);"><span>${btnLabel}</span><span>→</span></a></div>`;
+      if (!selectedId && data.showSearchFilter) {
+        document.getElementById('search-section').style.display = 'block';
+        const cats = ['All', ...new Set(allItems.map(i => i.category || 'General'))];
+        const pillsBox = document.getElementById('cat-pills');
+        cats.forEach(c => {
+          const btn = document.createElement('button');
+          btn.className = 'cat-pill' + (c === 'All' ? ' active' : '');
+          btn.textContent = c;
+          btn.onclick = () => {
+            activeCat = c;
+            document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('active'));
+            btn.classList.add('active');
+            renderCards('', data.showViewAllBtn !== false, data.viewAllBtnText);
+          };
+          pillsBox.appendChild(btn);
+        });
+        document.getElementById('search-input').oninput = e => {
+          query = e.target.value.toLowerCase();
+          renderCards('', data.showViewAllBtn !== false, data.viewAllBtnText);
+        };
       }
+
+      if (data.showConsultationCta) {
+        document.getElementById('consult-container').innerHTML = `<div class="card consult-card"><span class="badge">1-ON-1 CONSULTATION</span><h2>${data.consultationTitle || 'Need Tax, GST, or Excel Help?'}</h2><p>${data.consultationDesc || 'Book a 1-on-1 consultation or message directly on WhatsApp.'}</p><a class="btn" href="${data.consultationUrl || '#'}" target="_blank" rel="noopener"><span>${data.consultationBtnText || 'Chat on WhatsApp'}</span></a></div>`;
+      }
+
+      if (data.showPortfolioLink !== false) {
+        document.getElementById('portfolio-wrap').innerHTML = `<a class="portfolio-pill" href="${data.portfolioUrl || 'https://github.io'}" target="_blank" rel="noopener">View My Portfolio & CV ↗</a>`;
+      }
+
+      renderCards(selectedId, data.showViewAllBtn !== false, data.viewAllBtnText);
     });
   </script>
-
-      
-      
+</body>
+</html>
