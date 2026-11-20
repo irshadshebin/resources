@@ -1,11 +1,35 @@
+media:
+  input: .
+  output: .
+
 content:
   - name: resources
     label: Page Settings & Resource Cards
     path: resources.json
     type: file
     fields:
+      - name: profileImage
+        label: Profile Photo
+        type: image
+        default: profile.png
+      - name: profileName
+        label: Display Name
+        type: string
+        default: Irshad Shebin
+      - name: profileTagline
+        label: Bio Tagline
+        type: string
+        default: Finance | Accounting | Taxation
+      - name: showViewAllBtn
+        label: Show "View All Free Resources" Button on Single-Card Links
+        type: boolean
+        default: true
+      - name: viewAllBtnText
+        label: View All Button Text
+        type: string
+        default: View All Free Resources
       - name: footerText
-        label: Footer Follow Text (e.g., Follow @irshadshebin)
+        label: Footer Follow Text
         type: string
         default: Follow @irshadshebin
       - name: linkedinUrl
