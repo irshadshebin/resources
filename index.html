@@ -188,9 +188,10 @@
         };
       }
 
-      if (data.showConsultationCta) {
-        document.getElementById('consult-container').innerHTML = `<div class="card consult-card"><span class="badge">1-ON-1 CONSULTATION</span><h2>${data.consultationTitle || 'Need Tax, GST, or Excel Help?'}</h2><p>${data.consultationDesc || 'Book a 1-on-1 consultation or message directly on WhatsApp.'}</p><a class="btn" href="${data.consultationUrl || '#'}" target="_blank" rel="noopener"><span>${data.consultationBtnText || 'Chat on WhatsApp'}</span></a></div>`;
+            if (data.showConsultationCta) {
+        document.getElementById('consult-container').innerHTML = `<div class="card consult-card"><span class="badge">${data.consultationBadge || '1-ON-1 CONSULTATION'}</span><h2>${data.consultationTitle || 'Need Tax, GST, or Excel Help?'}</h2><p>${data.consultationDesc || 'Book a 1-on-1 consultation or message directly on WhatsApp.'}</p><a class="btn" href="${data.consultationUrl || '#'}" target="_blank" rel="noopener"><span>${data.consultationBtnText || 'Chat on WhatsApp'}</span></a></div>`;
       }
+      
 
       if (data.showPortfolioLink !== false) {
         document.getElementById('portfolio-wrap').innerHTML = `<a class="portfolio-pill" href="${data.portfolioUrl || 'https://github.io'}" target="_blank" rel="noopener">View My Portfolio & CV ↗</a>`;
