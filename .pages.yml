@@ -20,6 +20,38 @@ content:
         label: Bio Tagline
         type: string
         default: Finance | Accounting | Taxation
+      - name: showSearchFilter
+        label: Show Search & Category Filter Bar (Turn ON when you have 5+ cards)
+        type: boolean
+        default: false
+      - name: showConsultationCta
+        label: Show Consultation / WhatsApp Banner (Turn ON anytime)
+        type: boolean
+        default: false
+      - name: consultationTitle
+        label: Consultation Banner Title
+        type: string
+        default: Need Tax, GST, or Excel Help?
+      - name: consultationDesc
+        label: Consultation Banner Subtitle
+        type: string
+        default: Book a 1-on-1 consultation or message directly on WhatsApp.
+      - name: consultationBtnText
+        label: Consultation Button Text
+        type: string
+        default: Chat on WhatsApp
+      - name: consultationUrl
+        label: WhatsApp or Booking URL (e.g., https://wa.me)
+        type: string
+        default: https://wa.me
+      - name: showPortfolioLink
+        label: Show Link to Main Portfolio / CV
+        type: boolean
+        default: true
+      - name: portfolioUrl
+        label: Portfolio / CV URL
+        type: string
+        default: https://github.io
       - name: showViewAllBtn
         label: Show "View All Free Resources" Button on Single-Card Links
         type: boolean
@@ -49,6 +81,10 @@ content:
             label: Anchor ID (for Auto-DM link, e.g., excel-dashboard)
             type: string
             required: true
+          - name: category
+            label: Category (e.g., Excel, Taxation, Accounting, Finance)
+            type: string
+            default: Excel
           - name: badge
             label: Top Badge (e.g., FREE RESOURCE)
             type: string
