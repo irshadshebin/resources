@@ -101,21 +101,26 @@
     </div>
   </div>
 
-  <script>
+    <script>
     const icon = '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>';
     fetch('resources.json?v=' + Date.now()).then(r => r.json()).then(data => {
       if (data.footerText) document.getElementById('footer-label').textContent = data.footerText;
       if (data.linkedinUrl) document.getElementById('linkedin-link').href = data.linkedinUrl;
       if (data.instagramUrl) document.getElementById('instagram-link').href = data.instagramUrl;
 
+      const selectedId = window.location.hash.replace('#', '');
+      const itemsToShow = selectedId
+        ? (data.items || []).filter(item => item.id === selectedId)
+        : (data.items || []);
+
       const box = document.getElementById('cards-container');
-      (data.items || []).forEach(item => {
+      itemsToShow.forEach(item => {
         const btns = (item.buttons || []).map(b => `<a class="btn" href="${b.url}" ${b.url.startsWith('http') ? 'target="_blank" rel="noopener"' : 'download'}>${icon}<span>${b.label}</span></a>`).join('');
         box.innerHTML += `<div id="${item.id}" class="card"><span class="badge">${item.badge || 'FREE RESOURCE'}</span><h2>${item.title}</h2><p>${item.description}</p>${btns}</div>`;
       });
-      if (window.location.hash) {
-        const el = document.querySelector(window.location.hash);
-        if (el) { el.scrollIntoView({ behavior: 'smooth' }); el.classList.add('highlight'); setTimeout(() => el.classList.remove('highlight'), 2500); }
+
+      if (selectedId) {
+        box.innerHTML += `<div style="text-align:center;margin-bottom:16px;"><a href="./" style="color:#107C41;font-weight:700;font-size:14px;text-decoration:none;">← View All Free Resources</a></div>`;
       }
     });
   </script>
