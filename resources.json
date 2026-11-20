@@ -8,27 +8,11 @@
       "buttons": [
         {
           "label": "Download Step-by-Step PDF Guide",
-          "url": "PASTE_YOUR_PDF_URL_HERE"
+          "url": "Master_Excel_Dashboard_Tutorial_Guide.pdf"
         },
         {
           "label": "Download Practice Excel File (.xlsx)",
-          "url": "PASTE_YOUR_EXCEL_URL_HERE"
-        }
-      ]
-    },
-    {
-      "id": "gd",
-      "badge": "FREE RESOURCE",
-      "title": "dgb",
-      "description": "fdgb",
-      "buttons": [
-        {
-          "label": "dfgb",
-          "url": "bdf"
-        },
-        {
-          "label": "fgb",
-          "url": "fdb"
+          "url": "Master_Excel_Dashboard_Practice.xlsx"
         }
       ]
     }
