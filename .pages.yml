@@ -1,0 +1,38 @@
+content:
+  - name: resources
+    label: Resource Cards
+    path: resources.json
+    type: file
+    fields:
+      - name: items
+        label: Resources List
+        type: object
+        list: true
+        fields:
+          - name: id
+            label: Anchor ID (for Auto-DM link, e.g., excel-dashboard)
+            type: string
+            required: true
+          - name: badge
+            label: Top Badge (e.g., FREE RESOURCE)
+            type: string
+            default: FREE RESOURCE
+          - name: title
+            label: Resource Title
+            type: string
+            required: true
+          - name: description
+            label: Short Description
+            type: text
+            required: true
+          - name: buttons
+            label: Download / Action Buttons
+            type: object
+            list: true
+            fields:
+              - name: label
+                label: Button Text
+                type: string
+              - name: url
+                label: Download or Resource URL
+                type: string
