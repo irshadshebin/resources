@@ -87,16 +87,20 @@
     color: #107C41; background: #ECFDF5; border: 1px solid #A7F3D0;
     padding: 10px 12px; border-radius: 12px; margin-bottom: 18px;
   }
-  .footer { text-align: center; margin-top: 28px; }
+  .portfolio-wrap { text-align: center; margin-bottom: 22px; }
+  .portfolio-pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 13px; font-weight: 700; color: #107C41; text-decoration: none;
+    padding: 10px 18px; border-radius: 999px; background: #FFFFFF;
+    border: 1.5px solid #A7F3D0; box-shadow: 0 4px 12px rgba(15,23,42,0.05);
+    transition: transform 0.15s ease, border-color 0.15s ease;
+  }
+  .portfolio-pill:hover { transform: translateY(-1px); border-color: #107C41; }
+  .footer { text-align: center; margin-top: 6px; }
   .footer-label { font-size: 13px; color: #475569; font-weight: 700; margin-bottom: 12px; }
   .socials { display: flex; justify-content: center; gap: 12px; }
   .social-link { display: inline-flex; transition: transform 0.15s ease; }
   .social-link:hover { transform: scale(1.12); }
-  .portfolio-pill {
-    display: inline-block; margin-top: 16px; font-size: 12.5px; font-weight: 700;
-    color: #107C41; text-decoration: none; padding: 6px 14px;
-    border-radius: 999px; background: rgba(255,255,255,0.8); border: 1px solid #D1FAE5;
-  }
 </style>
 </head>
 <body>
@@ -116,6 +120,7 @@
 
     <div id="cards-container"></div>
     <div id="consult-container"></div>
+    <div id="portfolio-wrap" class="portfolio-wrap" style="display:none;"></div>
 
     <div class="footer">
       <div class="footer-label" id="footer-label">Follow @irshadshebin</div>
@@ -127,7 +132,6 @@
           <svg width="28" height="28" viewBox="0 0 24 24" xmlns="http://w3.org"><defs><radialGradient id="ig-official" cx="30%" cy="107%" r="150%"><stop offset="0%" stop-color="#fdf497"/><stop offset="5%" stop-color="#fdf497"/><stop offset="45%" stop-color="#fd5949"/><stop offset="60%" stop-color="#d6249f"/><stop offset="90%" stop-color="#285AEB"/></radialGradient></defs><rect x="2" y="2" width="20" height="20" rx="5.5" fill="url(#ig-official)"/><rect x="5.2" y="5.2" width="13.6" height="13.6" rx="3.8" fill="none" stroke="#FFFFFF" stroke-width="1.8"/><circle cx="12" cy="12" r="3.3" fill="none" stroke="#FFFFFF" stroke-width="1.8"/><circle cx="16.2" cy="7.8" r="1.1" fill="#FFFFFF"/></svg>
         </a>
       </div>
-      <div id="portfolio-wrap"></div>
     </div>
   </div>
 
@@ -143,18 +147,20 @@
         if (activeCat !== 'All') list = list.filter(i => (i.category || 'General') === activeCat);
         if (query) list = list.filter(i => (i.title + ' ' + i.description + ' ' + (i.category || '')).toLowerCase().includes(query));
       }
-      list.forEach(item => {
-                const btns = (item.buttons || []).map(b => {
+      const hasPill = Boolean(selectedId && showViewAll);
+      list.forEach((item, idx) => {
+        const isLastWithPill = hasPill && idx === list.length - 1;
+        const btns = (item.buttons || []).map(b => {
           const rawTarget = b.file || b.url || '#';
           const cleanUrl = rawTarget.replace(/^\/+/, '');
           const isExt = cleanUrl.startsWith('http');
           return `<a class="btn" href="${cleanUrl}" target="_blank" rel="noopener" ${isExt ? '' : 'download onclick="document.getElementById(\'dl-tip\').style.display=\'block\'"'}>${icon}<span>${b.label}</span></a>`;
         }).join('');
-
-        box.innerHTML += `<div id="${item.id}" class="card"><span class="badge">${item.badge || 'FREE RESOURCE'}</span><h2>${item.title}</h2><p>${item.description}</p>${btns}</div>`;
+        box.innerHTML += `<div id="${item.id}" class="card" ${isLastWithPill ? 'style="margin-bottom:0;"' : ''}><span class="badge">${item.badge || 'FREE RESOURCE'}</span><h2>${item.title}</h2><p>${item.description}</p>${btns}</div>`;
       });
-      if (selectedId && showViewAll) {
-        box.innerHTML += `<div style="text-align:center;margin:20px 0 8px;"><a href="./" style="display:inline-flex;align-items:center;gap:6px;background:#FFFFFF;color:#107C41;border:1.5px solid #A7F3D0;padding:10px 20px;border-radius:999px;font-weight:700;font-size:13.5px;text-decoration:none;box-shadow:0 4px 12px rgba(15,23,42,0.05);"><span>${viewAllText || 'View All Free Resources'}</span><span>→</span></a></div>`;
+
+      if (hasPill) {
+        box.innerHTML += `<div style="text-align:center;margin:20px 0;"><a class="portfolio-pill" href="./"><span>${viewAllText || 'View All Free Resources'}</span><span>→</span></a></div>`;
       }
     }
 
@@ -168,6 +174,8 @@
 
       allItems = data.items || [];
       const selectedId = window.location.hash.replace('#', '');
+      const showViewAll = data.showViewAllBtn !== false;
+      const viewAllText = data.viewAllBtnText;
 
       if (!selectedId && data.showSearchFilter) {
         document.getElementById('search-section').style.display = 'block';
@@ -181,26 +189,27 @@
             activeCat = c;
             document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('active'));
             btn.classList.add('active');
-            renderCards('', data.showViewAllBtn !== false, data.viewAllBtnText);
+            renderCards('', showViewAll, viewAllText);
           };
           pillsBox.appendChild(btn);
         });
         document.getElementById('search-input').oninput = e => {
           query = e.target.value.toLowerCase();
-          renderCards('', data.showViewAllBtn !== false, data.viewAllBtnText);
+          renderCards('', showViewAll, viewAllText);
         };
       }
 
-            if (data.showConsultationCta) {
+      if (data.showConsultationCta) {
         document.getElementById('consult-container').innerHTML = `<div class="card consult-card"><span class="badge">${data.consultationBadge || '1-ON-1 CONSULTATION'}</span><h2>${data.consultationTitle || 'Need Tax, GST, or Excel Help?'}</h2><p>${data.consultationDesc || 'Book a 1-on-1 consultation or message directly on WhatsApp.'}</p><a class="btn" href="${data.consultationUrl || '#'}" target="_blank" rel="noopener"><span>${data.consultationBtnText || 'Chat on WhatsApp'}</span></a></div>`;
       }
-      
 
       if (data.showPortfolioLink !== false) {
-        document.getElementById('portfolio-wrap').innerHTML = `<a class="portfolio-pill" href="${data.portfolioUrl || 'https://github.io'}" target="_blank" rel="noopener">View My Portfolio & CV ↗</a>`;
+        const pWrap = document.getElementById('portfolio-wrap');
+        pWrap.style.display = 'block';
+        pWrap.innerHTML = `<a class="portfolio-pill" href="${data.portfolioUrl || 'https://github.io'}" target="_blank" rel="noopener"><span>${data.portfolioBtnText || 'View My Portfolio & CV'}</span><span>↗</span></a>`;
       }
 
-      renderCards(selectedId, data.showViewAllBtn !== false, data.viewAllBtnText);
+      renderCards(selectedId, showViewAll, viewAllText);
     });
   </script>
 </body>
