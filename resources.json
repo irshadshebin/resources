@@ -1,0 +1,20 @@
+{
+  "items": [
+    {
+      "id": "excel-dashboard",
+      "badge": "FREE RESOURCE",
+      "title": "Master Excel Dashboard",
+      "description": "Build a live Sales & Profit Dashboard with dynamic Slicers, KPI cards, and 1-click refresh.",
+      "buttons": [
+        {
+          "label": "Download Step-by-Step PDF Guide",
+          "url": "PASTE_YOUR_PDF_URL_HERE"
+        },
+        {
+          "label": "Download Practice Excel File (.xlsx)",
+          "url": "PASTE_YOUR_EXCEL_URL_HERE"
+        }
+      ]
+    }
+  ]
+}
