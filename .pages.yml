@@ -9,7 +9,7 @@ content:
     type: file
     fields:
       - name: items
-        label: 1. Resources List (Add & Edit Download Cards Here)
+        label: 1. Resources List (Drag to Reorder Cards)
         type: object
         list: true
         fields:
@@ -48,79 +48,89 @@ content:
                 label: Option B — Or Paste Website / YouTube / Google Drive URL
                 type: string
 
-      - name: profileImage
-        label: 2. Profile — Photo
+      - name: sectionsOrder
+        label: 2. Page Layout Order (Drag to Reorder Sections & Toggle ON/OFF)
+        type: object
+        list: true
+        fields:
+          - name: section
+            label: Page Section
+            type: select
+            options:
+              values:
+                - value: cards
+                  label: Resource Download Cards
+                - value: viewAllBtn
+                  label: View All Free Resources Pill (Shows on #id links)
+                - value: consultation
+                  label: 1-on-1 Consultation / WhatsApp Card
+                - value: portfolioBtn
+                  label: View My Portfolio & CV Pill
+          - name: enabled
+            label: Show Section (ON / OFF)
+            type: boolean
+            default: true
+                  - name: profileImage
+        label: 3. Profile — Photo
         type: image
         default: profile.png
       - name: profileName
-        label: 2. Profile — Display Name
+        label: 3. Profile — Display Name
         type: string
         default: Irshad Shebin
       - name: profileTagline
-        label: 2. Profile — Bio Subline
+        label: 3. Profile — Bio Subline
         type: string
         default: Finance | Accounting | Taxation
 
       - name: showSearchFilter
-        label: 3. Navigation — Show Search & Category Filter Bar
+        label: 4. Buttons & Search — Show Search & Category Filter Bar
         type: boolean
         default: false
-      - name: showViewAllBtn
-        label: 3. Navigation — Show "View All Free Resources" Pill (on #id links)
-        type: boolean
-        default: true
       - name: viewAllBtnText
-        label: 3. Navigation — View All Button Text
+        label: 4. Buttons & Search — View All Button Text
         type: string
         default: View All Free Resources
-      - name: showPortfolioLink
-        label: 3. Navigation — Show "View My Portfolio & CV" Pill Button
-        type: boolean
-        default: true
       - name: portfolioBtnText
-        label: 3. Navigation — Portfolio Button Text
+        label: 4. Buttons & Search — Portfolio Button Text
         type: string
         default: View My Portfolio & CV
       - name: portfolioUrl
-        label: 3. Navigation — Portfolio / CV URL
+        label: 4. Buttons & Search — Portfolio / CV URL
         type: string
         default: https://github.io
 
-      - name: showConsultationCta
-        label: 4. Consultation — Show Consultation / WhatsApp Banner
-        type: boolean
-        default: false
       - name: consultationBadge
-        label: 4. Consultation — Top Badge
+        label: 5. Consultation Card — Top Badge
         type: string
         default: 1-ON-1 CONSULTATION
       - name: consultationTitle
-        label: 4. Consultation — Banner Title
+        label: 5. Consultation Card — Title
         type: string
         default: Need Tax, GST, or Excel Help?
       - name: consultationDesc
-        label: 4. Consultation — Banner Subtitle
+        label: 5. Consultation Card — Subtitle
         type: string
         default: Book a 1-on-1 consultation or message directly on WhatsApp.
       - name: consultationBtnText
-        label: 4. Consultation — Button Text
+        label: 5. Consultation Card — Button Text
         type: string
         default: Chat on WhatsApp
       - name: consultationUrl
-        label: 4. Consultation — WhatsApp or Booking URL
+        label: 5. Consultation Card — WhatsApp or Booking URL
         type: string
         default: https://wa.me
 
       - name: showFooterSocials
-        label: 5. Footer & Icons — Show Footer Follow Section
+        label: 6. Footer & Socials — Show Footer Section
         type: boolean
         default: true
       - name: footerText
-        label: 5. Footer & Icons — Follow Text
+        label: 6. Footer & Socials — Follow Text
         type: string
         default: Follow @irshadshebin
       - name: socialsList
-        label: 5. Footer & Icons — Drag to Reorder Social Icons
+        label: 6. Footer & Socials — Drag to Reorder Social Icons
         type: object
         list: true
         fields:
@@ -152,5 +162,6 @@ content:
             type: boolean
             default: true
           - name: url
-            label: Profile URL (For Gmail use mailto:yourname@gmail.com)
+            label: Profile URL (For Gmail type your email e.g. name@gmail.com)
             type: string
+
