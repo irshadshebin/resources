@@ -21,13 +21,17 @@ content:
         type: string
         default: Finance | Accounting | Taxation
       - name: showSearchFilter
-        label: Show Search & Category Filter Bar (Turn ON when you have 5+ cards)
+        label: Show Search & Category Filter Bar
         type: boolean
         default: false
       - name: showConsultationCta
-        label: Show Consultation / WhatsApp Banner (Turn ON anytime)
+        label: Show Consultation / WhatsApp Banner
         type: boolean
         default: false
+      - name: consultationBadge
+        label: Consultation Top Badge
+        type: string
+        default: 1-ON-1 CONSULTATION
       - name: consultationTitle
         label: Consultation Banner Title
         type: string
@@ -45,15 +49,19 @@ content:
         type: string
         default: https://wa.me
       - name: showPortfolioLink
-        label: Show Link to Main Portfolio / CV
+        label: Show "View My Portfolio & CV" Pill Button
         type: boolean
         default: true
+      - name: portfolioBtnText
+        label: Portfolio Button Text
+        type: string
+        default: View My Portfolio & CV
       - name: portfolioUrl
         label: Portfolio / CV URL
         type: string
         default: https://github.io
       - name: showViewAllBtn
-        label: Show "View All Free Resources" Button on Single-Card Links
+        label: Show "View All Free Resources" Pill (Appears on #id single-card links)
         type: boolean
         default: true
       - name: viewAllBtnText
@@ -105,6 +113,9 @@ content:
               - name: label
                 label: Button Text
                 type: string
+              - name: file
+                label: Option A — Upload Any File (PDF, Word, Excel, Image, Video, Audio)
+                type: file
               - name: url
-                label: Download or Resource URL
+                label: Option B — Or Paste Website / YouTube / Google Drive URL
                 type: string
