@@ -68,18 +68,78 @@ content:
         label: View All Button Text
         type: string
         default: View All Free Resources
+      - name: showFooterSocials
+        label: Show Footer Follow & Social Icons Section
+        type: boolean
+        default: true
       - name: footerText
         label: Footer Follow Text
         type: string
         default: Follow @irshadshebin
+      - name: showLinkedin
+        label: Show LinkedIn
+        type: boolean
+        default: true
       - name: linkedinUrl
         label: LinkedIn Profile URL
         type: string
         default: https://linkedin.com
+      - name: showInstagram
+        label: Show Instagram
+        type: boolean
+        default: true
       - name: instagramUrl
         label: Instagram Profile URL
         type: string
         default: https://instagram.com
+      - name: showThreads
+        label: Show Threads
+        type: boolean
+        default: true
+      - name: threadsUrl
+        label: Threads Profile URL
+        type: string
+        default: https://threads.net
+      - name: showYoutube
+        label: Show YouTube
+        type: boolean
+        default: false
+      - name: youtubeUrl
+        label: YouTube Channel URL
+        type: string
+        default: https://youtube.com
+      - name: showFacebook
+        label: Show Facebook
+        type: boolean
+        default: false
+      - name: facebookUrl
+        label: Facebook Page URL
+        type: string
+        default: https://facebook.com
+      - name: showX
+        label: Show X (Twitter)
+        type: boolean
+        default: false
+      - name: xUrl
+        label: X (Twitter) Profile URL
+        type: string
+        default: https://x.com
+      - name: showTelegram
+        label: Show Telegram
+        type: boolean
+        default: false
+      - name: telegramUrl
+        label: Telegram Channel / Handle URL
+        type: string
+        default: https://t.me
+      - name: showGithub
+        label: Show GitHub
+        type: boolean
+        default: false
+      - name: githubUrl
+        label: GitHub Profile URL
+        type: string
+        default: https://github.com
       - name: items
         label: Resources List
         type: object
