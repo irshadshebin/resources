@@ -98,7 +98,7 @@
   .portfolio-pill:hover { transform: translateY(-1px); border-color: #107C41; }
   .footer { text-align: center; margin-top: 6px; }
   .footer-label { font-size: 13px; color: #475569; font-weight: 700; margin-bottom: 12px; }
-  .socials { display: flex; justify-content: center; gap: 12px; }
+  .socials { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
   .social-link { display: inline-flex; transition: transform 0.15s ease; }
   .social-link:hover { transform: scale(1.12); }
 </style>
@@ -122,7 +122,7 @@
     <div id="consult-container"></div>
     <div id="portfolio-wrap" class="portfolio-wrap" style="display:none;"></div>
 
-    <div class="footer">
+    <div id="footer-section" class="footer">
       <div class="footer-label" id="footer-label">Follow @irshadshebin</div>
       <div class="socials">
         <a class="social-link" id="linkedin-link" href="https://linkedin.com" rel="noopener" aria-label="LinkedIn">
@@ -131,10 +131,27 @@
         <a class="social-link" id="instagram-link" href="https://instagram.com" rel="noopener" aria-label="Instagram">
           <svg width="28" height="28" viewBox="0 0 24 24" xmlns="http://w3.org"><defs><radialGradient id="ig-official" cx="30%" cy="107%" r="150%"><stop offset="0%" stop-color="#fdf497"/><stop offset="5%" stop-color="#fdf497"/><stop offset="45%" stop-color="#fd5949"/><stop offset="60%" stop-color="#d6249f"/><stop offset="90%" stop-color="#285AEB"/></radialGradient></defs><rect x="2" y="2" width="20" height="20" rx="5.5" fill="url(#ig-official)"/><rect x="5.2" y="5.2" width="13.6" height="13.6" rx="3.8" fill="none" stroke="#FFFFFF" stroke-width="1.8"/><circle cx="12" cy="12" r="3.3" fill="none" stroke="#FFFFFF" stroke-width="1.8"/><circle cx="16.2" cy="7.8" r="1.1" fill="#FFFFFF"/></svg>
         </a>
+        <a class="social-link" id="threads-link" href="https://threads.net" rel="noopener" aria-label="Threads">
+          <svg width="28" height="28" viewBox="0 0 24 24" xmlns="http://w3.org"><rect x="2" y="2" width="20" height="20" rx="5.5" fill="#0F172A"/><path d="M15.7 11.4c-.1-.1-.3-.2-.4-.2-.2-2.2-1.4-3.5-3.6-3.5-1.3 0-2.4.5-3.1 1.5l1.2.8c.5-.7 1.1-1 1.9-1 1.3 0 2 .7 2.2 2-.7-.1-1.4-.2-2.2-.2-2.1 0-3.5 1.1-3.5 2.7 0 1.6 1.3 2.7 3.1 2.7 1.6 0 2.8-.7 3.3-2 .3-.6.4-1.3.4-2.1.5.3.8.8.8 1.4 0 1.6-1.4 2.9-3.6 2.9-2.5 0-4.3-1.7-4.3-4.3 0-2.6 1.8-4.4 4.3-4.4 2.1 0 3.7 1.2 4.1 3.1l1.4-.3C17.4 7.7 15.3 6 12.3 6 9 6 6.6 8.4 6.6 12c0 3.6 2.4 5.9 5.7 5.9 3 0 5-1.9 5-4.3 0-1-.5-1.8-1.6-2.2zm-4.1 3.4c-1 0-1.7-.5-1.7-1.3 0-.8.8-1.3 2.1-1.3.7 0 1.3.1 1.9.2-.1 1.5-1 2.4-2.3 2.4z" fill="#FFFFFF"/></svg>
+        </a>
+        <a class="social-link" id="youtube-link" href="https://youtube.com" rel="noopener" aria-label="YouTube" style="display:none;">
+          <svg width="28" height="28" viewBox="0 0 24 24" xmlns="http://w3.org"><rect x="2" y="4.5" width="20" height="15" rx="4.5" fill="#FF0033"/><polygon points="10,8.5 16,12 10,15.5" fill="#FFFFFF"/></svg>
+        </a>
+        <a class="social-link" id="facebook-link" href="https://facebook.com" rel="noopener" aria-label="Facebook" style="display:none;">
+          <svg width="28" height="28" viewBox="0 0 24 24" xmlns="http://w3.org"><circle cx="12" cy="12" r="10" fill="#0866FF"/><path d="M15.1 12.7l.4-2.7h-2.6V8.3c0-.7.4-1.4 1.5-1.4h1.2V4.6s-1.1-.2-2.1-.2c-2.1 0-3.5 1.3-3.5 3.6v2H7.7v2.7h2.3v6.5h2.9v-6.5h2.2z" fill="#FFFFFF"/></svg>
+        </a>
+        <a class="social-link" id="x-link" href="https://x.com" rel="noopener" aria-label="X" style="display:none;">
+          <svg width="28" height="28" viewBox="0 0 24 24" xmlns="http://w3.org"><rect x="2" y="2" width="20" height="20" rx="5.5" fill="#0F172A"/><path d="M13.3 10.9L17.8 5.7h-1.1l-3.9 4.5-3.1-4.5H6l4.7 6.8L6 18h1.1l4.1-4.8 3.3 4.8h3.7l-4.9-7.1zm-1.5 1.7l-.5-.7-3.8-5.4h1.6l3.1 4.4.5.7 4 5.7h-1.6l-3.3-4.7z" fill="#FFFFFF"/></svg>
+        </a>
+        <a class="social-link" id="telegram-link" href="https://t.me" rel="noopener" aria-label="Telegram" style="display:none;">
+          <svg width="28" height="28" viewBox="0 0 24 24" xmlns="http://w3.org"><circle cx="12" cy="12" r="10" fill="#26A5E4"/><path d="M16.9 7.8L6.5 11.8c-.7.3-.7.7-.1.9l2.7.8 6.2-3.9c.3-.2.6-.1.3.1l-5 4.5-.2 2.8c.3 0 .4-.1.6-.3l1.3-1.3 2.7 2c.5.3.9.1 1-.5l1.8-8.5c.2-.7-.3-1-.9-.7z" fill="#FFFFFF"/></svg>
+        </a>
+        <a class="social-link" id="github-link" href="https://github.com" rel="noopener" aria-label="GitHub" style="display:none;">
+          <svg width="28" height="28" viewBox="0 0 24 24" xmlns="http://w3.org"><circle cx="12" cy="12" r="10" fill="#181717"/><path fill-rule="evenodd" clip-rule="evenodd" d="M12 6.2c-3.3 0-6 2.7-6 6 0 2.6 1.7 4.9 4.1 5.7.3.1.4-.1.4-.3v-1.1c-1.7.4-2-.8-2-.8-.3-.7-.7-.9-.7-.9-.6-.4 0-.4 0-.4.6 0 1 .7 1 .7.6 1 1.5.7 1.8.5.1-.4.2-.7.4-.9-1.3-.2-2.7-.7-2.7-3 0-.7.2-1.2.6-1.6-.1-.2-.3-.8.1-1.6 0 0 .5-.2 1.6.6.5-.1 1-.2 1.5-.2.5 0 1 .1 1.5.2 1.1-.8 1.6-.6 1.6-.6.3.8.1 1.4.1 1.6.4.4.6 1 .6 1.6 0 2.3-1.4 2.8-2.7 3 .2.2.4.6.4 1.2v1.7c0 .2.1.4.4.3 2.4-.8 4.1-3.1 4.1-5.7 0-3.3-2.7-6-6-6z" fill="#FFFFFF"/></svg>
+        </a>
       </div>
     </div>
   </div>
-
   <script>
     const icon = '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>';
     let allItems = [], activeCat = 'All', query = '';
@@ -168,9 +185,32 @@
       if (data.profileImage) document.getElementById('profile-img').src = data.profileImage.replace(/^\/+/, '');
       if (data.profileName) { document.getElementById('profile-name').textContent = data.profileName; document.getElementById('profile-img').alt = data.profileName; }
       if (data.profileTagline) document.getElementById('profile-tagline').textContent = data.profileTagline;
-      if (data.footerText) document.getElementById('footer-label').textContent = data.footerText;
-      if (data.linkedinUrl) document.getElementById('linkedin-link').href = data.linkedinUrl;
-      if (data.instagramUrl) document.getElementById('instagram-link').href = data.instagramUrl;
+
+      if (data.showFooterSocials === false) {
+        document.getElementById('footer-section').style.display = 'none';
+      } else {
+        if (data.footerText) document.getElementById('footer-label').textContent = data.footerText;
+        const socialsMap = [
+          { id: 'linkedin-link', show: data.showLinkedin !== false, url: data.linkedinUrl },
+          { id: 'instagram-link', show: data.showInstagram !== false, url: data.instagramUrl },
+          { id: 'threads-link', show: data.showThreads !== false, url: data.threadsUrl },
+          { id: 'youtube-link', show: Boolean(data.showYoutube), url: data.youtubeUrl },
+          { id: 'facebook-link', show: Boolean(data.showFacebook), url: data.facebookUrl },
+          { id: 'x-link', show: Boolean(data.showX), url: data.xUrl },
+          { id: 'telegram-link', show: Boolean(data.showTelegram), url: data.telegramUrl },
+          { id: 'github-link', show: Boolean(data.showGithub), url: data.githubUrl }
+        ];
+        socialsMap.forEach(s => {
+          const el = document.getElementById(s.id);
+          if (!el) return;
+          if (s.show) {
+            el.style.display = 'inline-flex';
+            if (s.url) el.href = s.url;
+          } else {
+            el.style.display = 'none';
+          }
+        });
+      }
 
       allItems = data.items || [];
       const selectedId = window.location.hash.replace('#', '');
