@@ -33,6 +33,16 @@
   "footerText": "Follow @irshadshebin",
   "socialsList": [
     {
+      "platform": "linkedin",
+      "enabled": true,
+      "url": "https://www.linkedin.com/in/irshadshebin"
+    },
+    {
+      "platform": "instagram",
+      "enabled": true,
+      "url": "https://www.instagram.com/irshadshebin?jplx=MTlzYmJ0bHk5MHhuZg=="
+    },
+    {
       "platform": "facebook",
       "enabled": true,
       "url": "https://www.facebook.com/share/1KbHtQHRxT/"
