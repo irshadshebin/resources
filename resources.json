@@ -13,49 +13,9 @@
         },
         {
           "label": "Download Excel Practice File (.xlsx)",
-          "url": "Master_Excel_Dashboard_Practice.xlsx"
+          "url": "https://docs.google.com/spreadsheets/d/11WkjH-EFOc6WRo5vYhel_v0bMxdZSq9J/edit?usp=sharing&ouid=100807102305352961459&rtpof=true&sd=true"
         }
       ]
-    }
-  ],
-  "profileName": "Irshad Shebin | Finance & AI",
-  "profileTagline": "Finance, accounting and taxation systems built with AI\nDeployable prompts, automations, workflows and templates",
-  "showSearchFilter": true,
-  "viewAllBtnText": "View All Free Resources",
-  "portfolioBtnText": "View My Portfolio & CV",
-  "portfolioUrl": "https://github.io",
-  "consultationBadge": "1-ON-1 CONSULTATION",
-  "consultationTitle": "Need Tax, GST, or Excel Help?",
-  "consultationDesc": "Book a 1-on-1 consultation or message directly on WhatsApp.",
-  "consultationBtnText": "Chat on WhatsApp",
-  "consultationUrl": "https://wa.me",
-  "showFooterSocials": true,
-  "footerText": "Follow @irshadshebin",
-  "socialsList": [
-    {
-      "platform": "linkedin",
-      "enabled": true,
-      "url": "https://www.linkedin.com/in/irshadshebin"
-    },
-    {
-      "platform": "instagram",
-      "enabled": true,
-      "url": "https://www.instagram.com/irshadshebin?jplx=MTlzYmJ0bHk5MHhuZg=="
-    },
-    {
-      "platform": "facebook",
-      "enabled": true,
-      "url": "https://www.facebook.com/share/1KbHtQHRxT/"
-    },
-    {
-      "platform": "threads",
-      "enabled": true,
-      "url": "https://www.threads.com/@irshadshebin"
-    },
-    {
-      "platform": "gmail",
-      "enabled": true,
-      "url": "irshadshbn7@gmail.com"
     }
   ]
 }
