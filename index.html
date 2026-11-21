@@ -198,17 +198,14 @@
         if (activeCat !== 'All') list = list.filter(i => (i.category || 'General') === activeCat);
         if (query) list = list.filter(i => (i.title + ' ' + i.description + ' ' + (i.category || '')).toLowerCase().includes(query));
       }
-      return list.map(item => {
+            return list.map(item => {
         const btns = (item.buttons || []).map(b => {
           const rawTarget = b.file || b.url || '#';
           const cleanUrl = rawTarget.replace(/^\/+/, '');
           const isExt = cleanUrl.startsWith('http');
           const fileName = cleanUrl.split('/').pop() || 'resource';
-          if (isExt) {
-            return `<a class="btn" href="${cleanUrl}" target="_blank" rel="noopener">${icon}<span>${b.label}</span></a>`;
-          }
-          if (isInApp) {
-            return `<a class="btn" href="${cleanUrl}" onclick="document.getElementById('dl-tip').style.display='block'">${icon}<span>${b.label}</span></a>`;
+          if (isExt || isInApp) {
+            return `<a class="btn" href="${cleanUrl}" ${isExt ? 'target="_blank" rel="noopener"' : ''}>${icon}<span>${b.label}</span></a>`;
           }
           return `<a class="btn" href="${cleanUrl}" download="${fileName}">${icon}<span>${b.label}</span></a>`;
         }).join('');
