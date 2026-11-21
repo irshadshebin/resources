@@ -2,7 +2,7 @@
   "profileImage": "profile.png",
   "profileName": "Irshad Shebin | Finance & AI",
   "profileTagline": "Finance, accounting and taxation systems built with AI.\nDeployable prompts, automations, workflows and templates.",
-  "showConsultationCta": true,
+  "showConsultationCta": false,
   "consultationBadge": "1-ON-1 CONSULTATION & INQUIRIES",
   "consultationTitle": "Need Tax, GST, or Excel Help?",
   "consultationDesc": "Book a 1-on-1 consultation or reach out directly for custom systems.",
