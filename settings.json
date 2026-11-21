@@ -10,6 +10,20 @@
   "contactCardBadge": "DIRECT CONTACT",
   "contactCardTitle": "Have a Question or Inquiry?",
   "contactCardDesc": "Reach out directly via WhatsApp, Email, or Telegram.",
+  "contactList": [
+    {
+      "channel": "whatsapp",
+      "enabled": true
+    },
+    {
+      "channel": "email",
+      "enabled": true
+    },
+    {
+      "channel": "telegram",
+      "enabled": true
+    }
+  ],
   "showViewAllBtn": true,
   "viewAllBtnText": "View All Free Resources",
   "showPortfolioLink": true,
