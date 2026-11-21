@@ -10,7 +10,7 @@
   "contactList": [
     {
       "channel": "whatsapp",
-      "enabled": true,
+      "enabled": false,
       "label": "Chat on WhatsApp",
       "value": "https://wa.me/918891530230"
     },
