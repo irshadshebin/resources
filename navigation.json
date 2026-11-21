@@ -1,0 +1,8 @@
+{
+  "showSearchFilter": false,
+  "showViewAllBtn": true,
+  "viewAllBtnText": "View All Free Resources",
+  "showPortfolioLink": true,
+  "portfolioBtnText": "View My Portfolio & CV",
+  "portfolioUrl": "https://github.io"
+}
