@@ -4,12 +4,12 @@ media:
 
 content:
   - name: resources
-    label: Page Settings & Resource Cards
+    label: Resource Cards
     path: resources.json
     type: file
     fields:
       - name: items
-        label: 1. Resources List (Drag to Reorder Cards)
+        label: Resources List (Drag to Reorder Cards)
         type: object
         list: true
         fields:
@@ -48,89 +48,110 @@ content:
                 label: Option B — Or Paste Website / YouTube / Google Drive URL
                 type: string
 
-      - name: sectionsOrder
-        label: 2. Page Layout Order (Drag to Reorder Sections & Toggle ON/OFF)
-        type: object
-        list: true
-        fields:
-          - name: section
-            label: Page Section
-            type: select
-            options:
-              values:
-                - value: cards
-                  label: Resource Download Cards
-                - value: viewAllBtn
-                  label: View All Free Resources Pill (Shows on #id links)
-                - value: consultation
-                  label: 1-on-1 Consultation / WhatsApp Card
-                - value: portfolioBtn
-                  label: View My Portfolio & CV Pill
-          - name: enabled
-            label: Show Section (ON / OFF)
-            type: boolean
-            default: true
-                  - name: profileImage
-        label: 3. Profile — Photo
+  - name: settings
+    label: Page Settings
+    path: settings.json
+    type: file
+    fields:
+      - name: profileImage
+        label: 1. Profile — Photo
         type: image
         default: profile.png
       - name: profileName
-        label: 3. Profile — Display Name
+        label: 1. Profile — Display Name
         type: string
-        default: Irshad Shebin
+        default: Irshad Shebin | Finance & AI
       - name: profileTagline
-        label: 3. Profile — Bio Subline
+        label: 1. Profile — Bio Subline (Press Enter for 2nd line)
         type: text
-        default: Finance | Accounting | Taxation
 
-      - name: showSearchFilter
-        label: 4. Buttons & Search — Show Search & Category Filter Bar
+      - name: showConsultationCta
+        label: 2. Consultation & Direct Contact — Show Card (ON / OFF)
         type: boolean
         default: false
-      - name: viewAllBtnText
-        label: 4. Buttons & Search — View All Button Text
-        type: string
-        default: View All Free Resources
-      - name: portfolioBtnText
-        label: 4. Buttons & Search — Portfolio Button Text
-        type: string
-        default: View My Portfolio & CV
-      - name: portfolioUrl
-        label: 4. Buttons & Search — Portfolio / CV URL
-        type: string
-        default: https://github.io
-
       - name: consultationBadge
-        label: 5. Consultation Card — Top Badge
+        label: 2. Consultation — Top Badge
         type: string
-        default: 1-ON-1 CONSULTATION
+        default: 1-ON-1 CONSULTATION & INQUIRIES
       - name: consultationTitle
-        label: 5. Consultation Card — Title
+        label: 2. Consultation — Card Title
         type: string
         default: Need Tax, GST, or Excel Help?
       - name: consultationDesc
-        label: 5. Consultation Card — Subtitle
+        label: 2. Consultation — Subtitle
         type: string
-        default: Book a 1-on-1 consultation or message directly on WhatsApp.
-      - name: consultationBtnText
-        label: 5. Consultation Card — Button Text
+        default: Book a 1-on-1 consultation or reach out directly for custom systems.
+      - name: showWhatsappBtn
+        label: 2. Contact — Show WhatsApp Button (ON / OFF)
+        type: boolean
+        default: true
+      - name: whatsappBtnText
+        label: 2. Contact — WhatsApp Button Text
         type: string
         default: Chat on WhatsApp
-      - name: consultationUrl
-        label: 5. Consultation Card — WhatsApp or Booking URL
+      - name: whatsappUrl
+        label: 2. Contact — WhatsApp Link (e.g., https://wa.me)
         type: string
         default: https://wa.me
+      - name: showEmailBtn
+        label: 2. Contact — Show Email Button (ON / OFF)
+        type: boolean
+        default: true
+      - name: emailBtnText
+        label: 2. Contact — Email Button Text
+        type: string
+        default: Send Email
+      - name: emailAddress
+        label: 2. Contact — Your Email Address
+        type: string
+        default: irshadsbn7@gmail.com
+      - name: showTelegramBtn
+        label: 2. Contact — Show Telegram Button (ON / OFF)
+        type: boolean
+        default: false
+      - name: telegramBtnText
+        label: 2. Contact — Telegram Button Text
+        type: string
+        default: Message on Telegram
+      - name: telegramUrl
+        label: 2. Contact — Telegram Link
+        type: string
+        default: https://t.me
+      - name: showSearchFilter
+        label: 3. Navigation — Show Search & Category Bar (ON / OFF)
+        type: boolean
+        default: false
+      - name: showViewAllBtn
+        label: 3. Navigation — Show "View All Free Resources" Pill on #id Links (ON / OFF)
+        type: boolean
+        default: true
+      - name: viewAllBtnText
+        label: 3. Navigation — View All Button Text
+        type: string
+        default: View All Free Resources
+      - name: showPortfolioLink
+        label: 3. Navigation — Show "View My Portfolio & CV" Pill (ON / OFF)
+        type: boolean
+        default: true
+      - name: portfolioBtnText
+        label: 3. Navigation — Portfolio Button Text
+        type: string
+        default: View My Portfolio & CV
+      - name: portfolioUrl
+        label: 3. Navigation — Portfolio / CV URL
+        type: string
+        default: https://github.io
 
       - name: showFooterSocials
-        label: 6. Footer & Socials — Show Footer Section
+        label: 4. Footer Follow Socials — Show Footer Section (ON / OFF)
         type: boolean
         default: true
       - name: footerText
-        label: 6. Footer & Socials — Follow Text
+        label: 4. Footer Follow Socials — Follow Text
         type: string
         default: Follow @irshadshebin
       - name: socialsList
-        label: 6. Footer & Socials — Drag to Reorder Social Icons
+        label: 4. Footer Follow Socials — Drag to Reorder Icons
         type: object
         list: true
         fields:
@@ -145,16 +166,12 @@ content:
                   label: LinkedIn
                 - value: threads
                   label: Threads
-                - value: gmail
-                  label: Gmail
                 - value: youtube
                   label: YouTube
                 - value: facebook
                   label: Facebook
                 - value: x
                   label: X (Twitter)
-                - value: telegram
-                  label: Telegram
                 - value: github
                   label: GitHub
           - name: enabled
@@ -162,6 +179,5 @@ content:
             type: boolean
             default: true
           - name: url
-            label: Profile URL (For Gmail type your email e.g. name@gmail.com)
+            label: Profile URL
             type: string
-
