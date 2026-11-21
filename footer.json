@@ -2,8 +2,25 @@
   "showFooterSocials": true,
   "footerText": "Follow @irshadshebin",
   "socialsList": [
-    { "platform": "instagram", "enabled": true, "url": "https://instagram.com" },
-    { "platform": "linkedin", "enabled": true, "url": "https://linkedin.com" },
-    { "platform": "threads", "enabled": true, "url": "https://threads.net" }
+    {
+      "platform": "linkedin",
+      "enabled": true,
+      "url": "https://www.linkedin.com/in/irshadshebin"
+    },
+    {
+      "platform": "instagram",
+      "enabled": true,
+      "url": "https://www.instagram.com/irshadshebin?jplx=MTlzYmJ0bHk5MHhuZg=="
+    },
+    {
+      "platform": "facebook",
+      "enabled": true,
+      "url": "https://www.facebook.com/share/1KbHtQHRxT/"
+    },
+    {
+      "platform": "threads",
+      "enabled": true,
+      "url": "https://www.threads.com/@irshadshebin"
+    }
   ]
 }
