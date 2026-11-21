@@ -32,11 +32,10 @@
     box-shadow: 0 10px 24px rgba(15,23,42,0.12);
   }
   .profile h1 {
-    font-size: clamp(19px, 5vw, 22px); font-weight: 800; margin-top: 12px;
-    display: flex; width: 100%; align-items: center; justify-content: center; gap: 10px;
-    line-height: 1.25;
+    font-size: clamp(18px, 4.8vw, 22px); font-weight: 800; margin-top: 12px;
+    text-align: center; line-height: 1.3; white-space: nowrap;
   }
-  .profile-pipe { color: #CBD5E1; font-weight: 400; }
+  .profile-pipe { color: #CBD5E1; font-weight: 400; margin: 0 6px; }
   .profile p { font-size: 13px; font-weight: 600; color: #475569; margin-top: 6px; line-height: 1.5; white-space: pre-line; }
   .search-wrap { margin-bottom: 18px; }
   .search-input {
@@ -165,7 +164,7 @@
       email: '<svg width="20" height="20" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="4" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/><path d="M4.5 18V9.2L12 14.8l7.5-5.6V18h-2.8v-5.3L12 16.2l-4.7-3.5V18H4.5z" fill="#EA4335"/><path d="M4.5 9.2V7.8c0-1.1 1.2-1.7 2.1-1L12 10.9l5.4-4.1c.9-.7 2.1-.1 2.1 1v1.4L12 14.8 4.5 9.2z" fill="#EA4335"/><path d="M4.5 9.2V18h2.8v-5.3L4.5 9.2z" fill="#4285F4"/><path d="M19.5 9.2V18h-2.8v-5.3l2.8-3.5z" fill="#34A853"/><path d="M16.7 7.3L19.5 9.2V7.8c0-1.1-1.2-1.7-2.1-1l-.7.5z" fill="#FBBC05"/></svg>',
       telegram: '<svg width="20" height="20" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#26A5E4"/><path d="M16.9 7.8L6.5 11.8c-.7.3-.7.7-.1.9l2.7.8 6.2-3.9c.3-.2.6-.1.3.1l-5 4.5-.2 2.8c.3 0 .4-.1.6-.3l1.3-1.3 2.7 2c.5.3.9.1 1-.5l1.8-8.5c.2-.7-.3-1-.9-.7z" fill="#FFFFFF"/></svg>'
     };
-    let cfg = {}, allItems = [], activeCat = 'All', query = '';
+    let allItems = [], prof = {}, cont = {}, nav = {}, foot = {}, activeCat = 'All', query = '';
 
     function buildCardsHtml(selectedId) {
       let list = selectedId ? allItems.filter(i => i.id === selectedId) : allItems;
@@ -184,19 +183,9 @@
       }).join('');
     }
 
-    function getActiveContacts() {
-      if (cfg.contactList && cfg.contactList.length) {
-        return cfg.contactList.filter(c => c.enabled !== false && c.value);
-      }
-      let fallback = [];
-      if (cfg.showWhatsappBtn !== false && cfg.whatsappUrl) fallback.push({ channel: 'whatsapp', label: cfg.whatsappBtnText || 'Chat on WhatsApp', value: cfg.whatsappUrl });
-      if (cfg.showEmailBtn !== false && cfg.emailAddress) fallback.push({ channel: 'email', label: cfg.emailBtnText || 'Send Email', value: cfg.emailAddress });
-      if (cfg.showTelegramBtn && cfg.telegramUrl) fallback.push({ channel: 'telegram', label: cfg.telegramBtnText || 'Message on Telegram', value: cfg.telegramUrl });
-      return fallback;
-    }
-
     function buildContactButtonsHtml() {
-      return getActiveContacts().map(c => {
+      const list = (cont.contactList || []).filter(c => c.enabled !== false && c.value);
+      return list.map(c => {
         const href = (c.channel === 'email' && !c.value.startsWith('mailto:')) ? 'mailto:' + c.value : c.value;
         const target = c.channel === 'email' ? '' : 'target="_blank" rel="noopener"';
         return `<a class="contact-btn" href="${href}" ${target}>${contactIcons[c.channel] || ''}<span>${c.label || c.channel}</span></a>`;
@@ -206,53 +195,56 @@
     function renderPage(selectedId) {
       const container = document.getElementById('dynamic-sections');
       container.innerHTML = buildCardsHtml(selectedId);
-      const consultOn = Boolean(cfg.showConsultationCta);
-      const showViewAll = Boolean(selectedId && cfg.showViewAllBtn !== false);
-      const showPortfolio = cfg.showPortfolioLink !== false;
+      const consultOn = Boolean(cont.showConsultationCta);
+      const showViewAll = Boolean(selectedId && nav.showViewAllBtn !== false);
+      const showPortfolio = nav.showPortfolioLink !== false;
       const contactBtns = buildContactButtonsHtml();
 
       if (!consultOn) {
         let pills = [];
-        if (showViewAll) pills.push(`<a class="portfolio-pill" href="./"><span>${cfg.viewAllBtnText || 'View All Free Resources'}</span><span>→</span></a>`);
-        if (showPortfolio) pills.push(`<a class="portfolio-pill" href="${cfg.portfolioUrl || 'https://github.io'}" target="_blank" rel="noopener"><span>${cfg.portfolioBtnText || 'View My Portfolio & CV'}</span><span>↗</span></a>`);
+        if (showViewAll) pills.push(`<a class="portfolio-pill" href="./"><span>${nav.viewAllBtnText || 'View All Free Resources'}</span><span>→</span></a>`);
+        if (showPortfolio) pills.push(`<a class="portfolio-pill" href="${nav.portfolioUrl || 'https://github.io'}" target="_blank" rel="noopener"><span>${nav.portfolioBtnText || 'View My Portfolio & CV'}</span><span>↗</span></a>`);
         if (pills.length) container.innerHTML += `<div class="pill-row">${pills.join('')}</div>`;
-        if (cfg.showDirectContact !== false && contactBtns) {
-          container.innerHTML += `<div class="card"><span class="badge">${cfg.contactCardBadge || 'DIRECT CONTACT'}</span><h2>${cfg.contactCardTitle || 'Have a Question or Inquiry?'}</h2><p>${cfg.contactCardDesc || 'Reach out directly via WhatsApp, Email, or Telegram.'}</p>${contactBtns}</div>`;
+        if (cont.showDirectContact !== false && contactBtns) {
+          container.innerHTML += `<div class="card"><span class="badge">${cont.contactCardBadge || 'DIRECT CONTACT'}</span><h2>${cont.contactCardTitle || 'Have a Question or Inquiry?'}</h2><p>${cont.contactCardDesc || 'Reach out directly via WhatsApp, Email, or Telegram.'}</p>${contactBtns}</div>`;
         }
       } else {
-        if (showViewAll) container.innerHTML += `<div class="pill-wrap"><a class="portfolio-pill" href="./"><span>${cfg.viewAllBtnText || 'View All Free Resources'}</span><span>→</span></a></div>`;
-        container.innerHTML += `<div class="card consult-card"><span class="badge">${cfg.consultationBadge || '1-ON-1 CONSULTATION & INQUIRIES'}</span><h2>${cfg.consultationTitle || 'Need Tax, GST, or Excel Help?'}</h2><p>${cfg.consultationDesc || 'Book a 1-on-1 consultation or reach out directly for custom systems.'}</p>${contactBtns}</div>`;
-        if (showPortfolio) container.innerHTML += `<div class="pill-wrap"><a class="portfolio-pill" href="${cfg.portfolioUrl || 'https://github.io'}" target="_blank" rel="noopener"><span>${cfg.portfolioBtnText || 'View My Portfolio & CV'}</span><span>↗</span></a></div>`;
+        if (showViewAll) container.innerHTML += `<div class="pill-wrap"><a class="portfolio-pill" href="./"><span>${nav.viewAllBtnText || 'View All Free Resources'}</span><span>→</span></a></div>`;
+        container.innerHTML += `<div class="card consult-card"><span class="badge">${cont.consultationBadge || '1-ON-1 CONSULTATION & INQUIRIES'}</span><h2>${cont.consultationTitle || 'Need Tax, GST, or Excel Help?'}</h2><p>${cont.consultationDesc || 'Book a 1-on-1 consultation or reach out directly for custom systems.'}</p>${contactBtns}</div>`;
+        if (showPortfolio) container.innerHTML += `<div class="pill-wrap"><a class="portfolio-pill" href="${nav.portfolioUrl || 'https://github.io'}" target="_blank" rel="noopener"><span>${nav.portfolioBtnText || 'View My Portfolio & CV'}</span><span>↗</span></a></div>`;
       }
     }
 
+    const v = '?v=' + Date.now();
     Promise.all([
-      fetch('resources.json?v=' + Date.now()).then(r => r.json()),
-      fetch('settings.json?v=' + Date.now()).then(r => r.json()).catch(() => ({}))
-    ]).then(([resData, setData]) => {
-      cfg = Object.keys(setData).length ? setData : resData;
-      allItems = resData.items || [];
+      fetch('resources.json' + v).then(r => r.json()).catch(() => ({})),
+      fetch('profile.json' + v).then(r => r.json()).catch(() => ({})),
+      fetch('contact.json' + v).then(r => r.json()).catch(() => ({})),
+      fetch('navigation.json' + v).then(r => r.json()).catch(() => ({})),
+      fetch('footer.json' + v).then(r => r.json()).catch(() => ({}))
+    ]).then(([rD, pD, cD, nD, fD]) => {
+      allItems = rD.items || [];
+      prof = pD; cont = cD; nav = nD; foot = fD;
 
-      if (cfg.profileImage) document.getElementById('profile-img').src = cfg.profileImage.replace(/^\/+/, '');
-      if (cfg.profileName) {
-        const parts = cfg.profileName.split('|').map(s => s.trim());
+      if (prof.profileImage) document.getElementById('profile-img').src = prof.profileImage.replace(/^\/+/, '');
+      if (prof.profileName) {
+        const parts = prof.profileName.split('|').map(s => s.trim());
         const nameEl = document.getElementById('profile-name');
         if (parts.length > 1) {
-          nameEl.innerHTML = `<span>${parts}</span><span class="profile-pipe">|</span><span>${parts.slice(1).join(' | ')}</span>`;
+          nameEl.innerHTML = `${parts}<span class="profile-pipe">|</span>${parts.slice(1).join(' | ')}`;
         } else {
-          nameEl.textContent = cfg.profileName;
+          nameEl.textContent = prof.profileName;
         }
         document.getElementById('profile-img').alt = parts;
       }
-      if (cfg.profileTagline) document.getElementById('profile-tagline').textContent = cfg.profileTagline;
+      if (prof.profileTagline) document.getElementById('profile-tagline').textContent = prof.profileTagline;
 
-      if (cfg.showFooterSocials === false) {
+      if (foot.showFooterSocials === false) {
         document.getElementById('footer-section').style.display = 'none';
       } else {
-        if (cfg.footerText) document.getElementById('footer-label').textContent = cfg.footerText;
+        if (foot.footerText) document.getElementById('footer-label').textContent = foot.footerText;
         const socialsBox = document.getElementById('socials-container');
-        const list = (cfg.socialsList && cfg.socialsList.length) ? cfg.socialsList : [];
-        list.forEach(s => {
+        (foot.socialsList || []).forEach(s => {
           if (s.enabled !== false && socialIcons[s.platform] && s.url) {
             socialsBox.innerHTML += `<a class="social-link" href="${s.url}" rel="noopener" aria-label="${s.platform}">${socialIcons[s.platform]}</a>`;
           }
@@ -260,7 +252,7 @@
       }
 
       const selectedId = window.location.hash.replace('#', '');
-      if (!selectedId && cfg.showSearchFilter) {
+      if (!selectedId && nav.showSearchFilter) {
         document.getElementById('search-section').style.display = 'block';
         const cats = ['All', ...new Set(allItems.map(i => i.category || 'General'))];
         const pillsBox = document.getElementById('cat-pills');
