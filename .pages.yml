@@ -4,7 +4,7 @@ media:
 
 content:
   - name: resources
-    label: Resource Cards
+    label: 1. Resource Cards
     path: resources.json
     type: file
     fields:
@@ -47,58 +47,62 @@ content:
               - name: url
                 label: Option B — Or Paste Website / YouTube / Google Drive URL
                 type: string
-  - name: settings
-    label: Page Settings
-    path: settings.json
+
+  - name: profile
+    label: 2. Profile
+    path: profile.json
     type: file
     fields:
       - name: profileImage
-        label: 1. Profile — Photo
+        label: Profile Photo
         type: image
         default: profile.png
       - name: profileName
-        label: 1. Profile — Display Name
+        label: Display Name
         type: string
         default: Irshad Shebin | Finance & AI
       - name: profileTagline
-        label: 1. Profile — Bio Subline (Press Enter for 2nd line)
+        label: Bio Subline (Press Enter for 2nd line)
         type: text
-
+  - name: contact
+    label: 3. Contact & Consultation
+    path: contact.json
+    type: file
+    fields:
       - name: showConsultationCta
-        label: 2. Consultation Card — Show 1-on-1 Consultation Card (ON / OFF)
+        label: Show Dark Consultation Card (ON / OFF)
         type: boolean
         default: false
       - name: consultationBadge
-        label: 2. Consultation Card — Top Badge
+        label: Consultation Card — Top Badge
         type: string
         default: 1-ON-1 CONSULTATION & INQUIRIES
       - name: consultationTitle
-        label: 2. Consultation Card — Title
+        label: Consultation Card — Title
         type: string
         default: Need Tax, GST, or Excel Help?
       - name: consultationDesc
-        label: 2. Consultation Card — Subtitle
+        label: Consultation Card — Subtitle
         type: string
         default: Book a 1-on-1 consultation or reach out directly for custom systems.
-
       - name: showDirectContact
-        label: 3. Direct Contact Card — Show When Consultation Is OFF (ON / OFF)
+        label: Show White Direct Contact Card When Consultation Is OFF (ON / OFF)
         type: boolean
         default: true
       - name: contactCardBadge
-        label: 3. Direct Contact Card — Top Badge
+        label: Direct Contact Card — Top Badge
         type: string
         default: DIRECT CONTACT
       - name: contactCardTitle
-        label: 3. Direct Contact Card — Title
+        label: Direct Contact Card — Title
         type: string
         default: Have a Question or Inquiry?
       - name: contactCardDesc
-        label: 3. Direct Contact Card — Subtitle
+        label: Direct Contact Card — Subtitle
         type: string
         default: Reach out directly via WhatsApp, Email, or Telegram.
       - name: contactList
-        label: 3. Contact Buttons — Drag to Reorder (WhatsApp, Email, Telegram)
+        label: Contact Buttons — Drag to Reorder (WhatsApp, Email, Telegram)
         type: object
         list: true
         fields:
@@ -123,41 +127,51 @@ content:
           - name: value
             label: Link or Email (e.g., https://wa.me or name@gmail.com)
             type: string
-        - name: showSearchFilter
-        label: 4. Navigation — Show Search & Category Bar (ON / OFF)
+  - name: navigation
+    label: 4. Navigation Buttons
+    path: navigation.json
+    type: file
+    fields:
+      - name: showSearchFilter
+        label: Show Search & Category Bar (ON / OFF)
         type: boolean
         default: false
       - name: showViewAllBtn
-        label: 4. Navigation — Show "View All Free Resources" Pill on #id Links (ON / OFF)
+        label: Show "View All Free Resources" Pill on #id Links (ON / OFF)
         type: boolean
         default: true
       - name: viewAllBtnText
-        label: 4. Navigation — View All Button Text
+        label: View All Button Text
         type: string
         default: View All Free Resources
       - name: showPortfolioLink
-        label: 4. Navigation — Show "View My Portfolio & CV" Pill (ON / OFF)
+        label: Show "View My Portfolio & CV" Pill (ON / OFF)
         type: boolean
         default: true
       - name: portfolioBtnText
-        label: 4. Navigation — Portfolio Button Text
+        label: Portfolio Button Text
         type: string
         default: View My Portfolio & CV
       - name: portfolioUrl
-        label: 4. Navigation — Portfolio / CV URL
+        label: Portfolio / CV URL
         type: string
         default: https://github.io
 
+  - name: footer
+    label: 5. Footer Socials
+    path: footer.json
+    type: file
+    fields:
       - name: showFooterSocials
-        label: 5. Footer Follow Socials — Show Footer Section (ON / OFF)
+        label: Show Footer Follow Section (ON / OFF)
         type: boolean
         default: true
       - name: footerText
-        label: 5. Footer Follow Socials — Follow Text
+        label: Footer Follow Text
         type: string
         default: Follow @irshadshebin
       - name: socialsList
-        label: 5. Footer Follow Socials — Drag to Reorder Icons
+        label: Social Icons — Drag to Reorder
         type: object
         list: true
         fields:
