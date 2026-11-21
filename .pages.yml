@@ -69,6 +69,10 @@ content:
         label: 2. Consultation & Direct Contact — Show Card (ON / OFF)
         type: boolean
         default: false
+      - name: showDirectContact
+        label: 2. Contact Bar — Show Standalone Contact Pills When Consultation Is OFF (ON / OFF)
+        type: boolean
+        default: true
       - name: consultationBadge
         label: 2. Consultation — Top Badge
         type: string
