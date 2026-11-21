@@ -2,8 +2,7 @@
   "profileImage": "profile.png",
   "profileName": "Irshad Shebin | Finance & AI",
   "profileTagline": "Finance, accounting and taxation systems built with AI.\nDeployable prompts, automations, workflows and templates.",
-  "showSearchFilter": false,
-  "showConsultationCta": false,
+  "showConsultationCta": true,
   "consultationBadge": "1-ON-1 CONSULTATION & INQUIRIES",
   "consultationTitle": "Need Tax, GST, or Excel Help?",
   "consultationDesc": "Book a 1-on-1 consultation or reach out directly for custom systems.",
@@ -13,9 +12,10 @@
   "showEmailBtn": true,
   "emailBtnText": "Send Email",
   "emailAddress": "irshadsbn7@gmail.com",
-  "showTelegramBtn": false,
+  "showTelegramBtn": true,
   "telegramBtnText": "Message on Telegram",
   "telegramUrl": "https://t.me",
+  "showSearchFilter": true,
   "showViewAllBtn": true,
   "viewAllBtnText": "View All Free Resources",
   "showPortfolioLink": true,
@@ -24,8 +24,20 @@
   "showFooterSocials": true,
   "footerText": "Follow @irshadshebin",
   "socialsList": [
-    { "platform": "instagram", "enabled": true, "url": "https://instagram.com" },
-    { "platform": "linkedin", "enabled": true, "url": "https://linkedin.com" },
-    { "platform": "threads", "enabled": true, "url": "https://threads.net" }
+    {
+      "platform": "instagram",
+      "enabled": true,
+      "url": "https://instagram.com"
+    },
+    {
+      "platform": "linkedin",
+      "enabled": true,
+      "url": "https://linkedin.com"
+    },
+    {
+      "platform": "threads",
+      "enabled": true,
+      "url": "https://threads.net"
+    }
   ]
 }
