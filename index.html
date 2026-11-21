@@ -142,7 +142,7 @@
       <div id="cat-pills" class="cat-pills"></div>
     </div>
 
-    <div id="dl-tip" class="dl-tip">Downloading file... If inside Instagram/Facebook browser, tap <b>⋮</b> → <b>Open in Chrome/Safari</b> if download doesn't start.</div>
+    <div id="dl-tip" class="dl-tip">Downloading file... If inside LinkedIn, Instagram, or Facebook, tap <b>⋮</b> (or <b>•••</b>) → <b>Open in Chrome / Safari</b> to save.</div>
 
     <div id="dynamic-sections"></div>
 
@@ -176,11 +176,12 @@
         if (query) list = list.filter(i => (i.title + ' ' + i.description + ' ' + (i.category || '')).toLowerCase().includes(query));
       }
       return list.map(item => {
-        const btns = (item.buttons || []).map(b => {
+                const btns = (item.buttons || []).map(b => {
           const rawTarget = b.file || b.url || '#';
           const cleanUrl = rawTarget.replace(/^\/+/, '');
           const isExt = cleanUrl.startsWith('http');
-          return `<a class="btn" href="${cleanUrl}" target="_blank" rel="noopener" ${isExt ? '' : 'download onclick="document.getElementById(\'dl-tip\').style.display=\'block\'"'}>${icon}<span>${b.label}</span></a>`;
+          const fileName = cleanUrl.split('/').pop() || 'resource';
+          return `<a class="btn" href="${cleanUrl}" ${isExt ? 'target="_blank" rel="noopener"' : `download="${fileName}" onclick="document.getElementById('dl-tip').style.display='block'"`}>${icon}<span>${b.label}</span></a>`;
         }).join('');
         return `<div id="${item.id}" class="card"><span class="badge">${item.badge || 'FREE RESOURCE'}</span><h2>${item.title}</h2><p>${item.description}</p>${btns}</div>`;
       }).join('');
