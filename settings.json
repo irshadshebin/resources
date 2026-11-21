@@ -7,7 +7,7 @@
   "consultationBadge": "1-ON-1 CONSULTATION & INQUIRIES",
   "consultationTitle": "Need Tax, GST, or Excel Help?",
   "consultationDesc": "Book a 1-on-1 consultation or reach out directly for custom systems.",
-  "showWhatsappBtn": false,
+  "showWhatsappBtn": true,
   "whatsappBtnText": "Chat on WhatsApp",
   "whatsappUrl": "https://wa.me",
   "showEmailBtn": true,
