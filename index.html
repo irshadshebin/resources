@@ -183,6 +183,20 @@
       return `<div class="card consult-card"><span class="badge">${cfg.consultationBadge || '1-ON-1 CONSULTATION & INQUIRIES'}</span><h2>${cfg.consultationTitle || 'Need Tax, GST, or Excel Help?'}</h2><p>${cfg.consultationDesc || 'Book a 1-on-1 consultation or reach out directly for custom systems.'}</p>${mainBtn}${subRow}</div>`;
     }
 
+        function buildContactPillsHtml() {
+      let pills = [];
+      if (cfg.showWhatsappBtn !== false && cfg.whatsappUrl && cfg.whatsappUrl !== 'https://wa.me') {
+        pills.push(`<a class="portfolio-pill" href="${cfg.whatsappUrl}" target="_blank" rel="noopener">💬 <span>${cfg.whatsappBtnText || 'WhatsApp'}</span></a>`);
+      }
+      if (cfg.showEmailBtn !== false && cfg.emailAddress) {
+        pills.push(`<a class="portfolio-pill" href="mailto:${cfg.emailAddress}">✉️ <span>${cfg.emailBtnText || 'Email'}</span></a>`);
+      }
+      if (cfg.showTelegramBtn && cfg.telegramUrl) {
+        pills.push(`<a class="portfolio-pill" href="${cfg.telegramUrl}" target="_blank" rel="noopener">✈️ <span>${cfg.telegramBtnText || 'Telegram'}</span></a>`);
+      }
+      return pills.length ? `<div class="pill-row">${pills.join('')}</div>` : '';
+    }
+
     function renderPage(selectedId) {
       const container = document.getElementById('dynamic-sections');
       container.innerHTML = buildCardsHtml(selectedId);
@@ -195,6 +209,9 @@
         if (showViewAll) pills.push(`<a class="portfolio-pill" href="./"><span>${cfg.viewAllBtnText || 'View All Free Resources'}</span><span>→</span></a>`);
         if (showPortfolio) pills.push(`<a class="portfolio-pill" href="${cfg.portfolioUrl || 'https://github.io'}" target="_blank" rel="noopener"><span>${cfg.portfolioBtnText || 'View My Portfolio & CV'}</span><span>↗</span></a>`);
         if (pills.length) container.innerHTML += `<div class="pill-row">${pills.join('')}</div>`;
+        if (cfg.showDirectContact !== false) {
+          container.innerHTML += buildContactPillsHtml();
+        }
       } else {
         if (showViewAll) container.innerHTML += `<div class="pill-wrap"><a class="portfolio-pill" href="./"><span>${cfg.viewAllBtnText || 'View All Free Resources'}</span><span>→</span></a></div>`;
         container.innerHTML += buildConsultHtml();
