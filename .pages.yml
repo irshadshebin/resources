@@ -47,7 +47,6 @@ content:
               - name: url
                 label: Option B — Or Paste Website / YouTube / Google Drive URL
                 type: string
-
   - name: settings
     label: Page Settings
     path: settings.json
@@ -66,96 +65,99 @@ content:
         type: text
 
       - name: showConsultationCta
-        label: 2. Consultation & Direct Contact — Show Card (ON / OFF)
+        label: 2. Consultation Card — Show 1-on-1 Consultation Card (ON / OFF)
         type: boolean
         default: false
-      - name: showDirectContact
-        label: 2. Contact Bar — Show Standalone Contact Pills When Consultation Is OFF (ON / OFF)
-        type: boolean
-        default: true
       - name: consultationBadge
-        label: 2. Consultation — Top Badge
+        label: 2. Consultation Card — Top Badge
         type: string
         default: 1-ON-1 CONSULTATION & INQUIRIES
       - name: consultationTitle
-        label: 2. Consultation — Card Title
+        label: 2. Consultation Card — Title
         type: string
         default: Need Tax, GST, or Excel Help?
       - name: consultationDesc
-        label: 2. Consultation — Subtitle
+        label: 2. Consultation Card — Subtitle
         type: string
         default: Book a 1-on-1 consultation or reach out directly for custom systems.
-      - name: showWhatsappBtn
-        label: 2. Contact — Show WhatsApp Button (ON / OFF)
+
+      - name: showDirectContact
+        label: 3. Direct Contact Card — Show When Consultation Is OFF (ON / OFF)
         type: boolean
         default: true
-      - name: whatsappBtnText
-        label: 2. Contact — WhatsApp Button Text
+      - name: contactCardBadge
+        label: 3. Direct Contact Card — Top Badge
         type: string
-        default: Chat on WhatsApp
-      - name: whatsappUrl
-        label: 2. Contact — WhatsApp Link (e.g., https://wa.me)
+        default: DIRECT CONTACT
+      - name: contactCardTitle
+        label: 3. Direct Contact Card — Title
         type: string
-        default: https://wa.me
-      - name: showEmailBtn
-        label: 2. Contact — Show Email Button (ON / OFF)
-        type: boolean
-        default: true
-      - name: emailBtnText
-        label: 2. Contact — Email Button Text
+        default: Have a Question or Inquiry?
+      - name: contactCardDesc
+        label: 3. Direct Contact Card — Subtitle
         type: string
-        default: Send Email
-      - name: emailAddress
-        label: 2. Contact — Your Email Address
-        type: string
-        default: irshadsbn7@gmail.com
-      - name: showTelegramBtn
-        label: 2. Contact — Show Telegram Button (ON / OFF)
-        type: boolean
-        default: false
-      - name: telegramBtnText
-        label: 2. Contact — Telegram Button Text
-        type: string
-        default: Message on Telegram
-      - name: telegramUrl
-        label: 2. Contact — Telegram Link
-        type: string
-        default: https://t.me
-      - name: showSearchFilter
-        label: 3. Navigation — Show Search & Category Bar (ON / OFF)
+        default: Reach out directly via WhatsApp, Email, or Telegram.
+      - name: contactList
+        label: 3. Contact Buttons — Drag to Reorder (WhatsApp, Email, Telegram)
+        type: object
+        list: true
+        fields:
+          - name: channel
+            label: Channel
+            type: select
+            options:
+              values:
+                - value: whatsapp
+                  label: WhatsApp
+                - value: email
+                  label: Gmail / Email
+                - value: telegram
+                  label: Telegram
+          - name: enabled
+            label: Show Button (ON / OFF)
+            type: boolean
+            default: true
+          - name: label
+            label: Button Text (e.g., Chat on WhatsApp, Send Email)
+            type: string
+          - name: value
+            label: Link or Email (e.g., https://wa.me or name@gmail.com)
+            type: string
+        - name: showSearchFilter
+        label: 4. Navigation — Show Search & Category Bar (ON / OFF)
         type: boolean
         default: false
       - name: showViewAllBtn
-        label: 3. Navigation — Show "View All Free Resources" Pill on #id Links (ON / OFF)
+        label: 4. Navigation — Show "View All Free Resources" Pill on #id Links (ON / OFF)
         type: boolean
         default: true
       - name: viewAllBtnText
-        label: 3. Navigation — View All Button Text
+        label: 4. Navigation — View All Button Text
         type: string
         default: View All Free Resources
       - name: showPortfolioLink
-        label: 3. Navigation — Show "View My Portfolio & CV" Pill (ON / OFF)
+        label: 4. Navigation — Show "View My Portfolio & CV" Pill (ON / OFF)
         type: boolean
         default: true
       - name: portfolioBtnText
-        label: 3. Navigation — Portfolio Button Text
+        label: 4. Navigation — Portfolio Button Text
         type: string
         default: View My Portfolio & CV
       - name: portfolioUrl
-        label: 3. Navigation — Portfolio / CV URL
+        label: 4. Navigation — Portfolio / CV URL
         type: string
         default: https://github.io
 
       - name: showFooterSocials
-        label: 4. Footer Follow Socials — Show Footer Section (ON / OFF)
+        label: 5. Footer Follow Socials — Show Footer Section (ON / OFF)
         type: boolean
         default: true
       - name: footerText
-        label: 4. Footer Follow Socials — Follow Text
+        label: 5. Footer Follow Socials — Follow Text
         type: string
         default: Follow @irshadshebin
       - name: socialsList
-        label: 4. Footer Follow Socials — Drag to Reorder Icons
+        label: 5. Footer Follow Socials — Drag to Reorder Icons
         type: object
         list: true
         fields:
