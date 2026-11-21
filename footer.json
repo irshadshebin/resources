@@ -1,0 +1,9 @@
+{
+  "showFooterSocials": true,
+  "footerText": "Follow @irshadshebin",
+  "socialsList": [
+    { "platform": "instagram", "enabled": true, "url": "https://instagram.com" },
+    { "platform": "linkedin", "enabled": true, "url": "https://linkedin.com" },
+    { "platform": "threads", "enabled": true, "url": "https://threads.net" }
+  ]
+}
