@@ -1,0 +1,15 @@
+{
+  "showConsultationCta": false,
+  "consultationBadge": "1-ON-1 CONSULTATION & INQUIRIES",
+  "consultationTitle": "Need Tax, GST, or Excel Help?",
+  "consultationDesc": "Book a 1-on-1 consultation or reach out directly for custom systems.",
+  "showDirectContact": true,
+  "contactCardBadge": "DIRECT CONTACT",
+  "contactCardTitle": "Have a Question or Inquiry?",
+  "contactCardDesc": "Reach out directly via WhatsApp, Email, or Telegram.",
+  "contactList": [
+    { "channel": "whatsapp", "enabled": true, "label": "Chat on WhatsApp", "value": "https://wa.me" },
+    { "channel": "email", "enabled": true, "label": "Send Email", "value": "irshadsbn7@gmail.com" },
+    { "channel": "telegram", "enabled": true, "label": "Message on Telegram", "value": "https://t.me" }
+  ]
+}
