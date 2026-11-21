@@ -48,7 +48,7 @@
     cursor: pointer; white-space: nowrap; transition: all 0.15s ease;
   }
   .cat-pill.active { background: #107C41; color: #FFFFFF; border-color: #107C41; }
-  .card {
+   .card {
     background: #FFFFFF; border-radius: 20px; padding: 24px 20px;
     border: 1.5px solid #D1FAE5;
     box-shadow: 0 16px 38px rgba(15,23,42,0.07);
@@ -63,6 +63,14 @@
   .consult-card h2 { color: #FFFFFF !important; }
   .consult-card p { color: #CBD5E1 !important; }
   .consult-card .badge { background: rgba(16,185,129,0.16); color: #6EE7B7; }
+  .contact-subrow { display: flex; gap: 10px; margin-top: 10px; }
+  .contact-subbtn {
+    flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+    padding: 11px 12px; border-radius: 12px; font-size: 13px; font-weight: 700;
+    text-decoration: none; color: #E2E8F0; background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.14); transition: background 0.15s ease;
+  }
+  .contact-subbtn:hover { background: rgba(255,255,255,0.15); }
   .badge {
     display: inline-block; background: #ECFDF5; color: #107C41;
     font-size: 11px; font-weight: 800; letter-spacing: 0.8px;
@@ -103,6 +111,10 @@
   .social-link { display: inline-flex; transition: transform 0.15s ease; }
   .social-link:hover { transform: scale(1.12); }
 </style>
+<script>
+  window.goatcounter = { path: function(p) { return p + location.hash; } };
+</script>
+<script data-goatcounter="https://goatcounter.com" async src="https://zgo.at"></script>
 </head>
 <body>
   <div class="wrap">
@@ -132,14 +144,12 @@
       linkedin: '<svg width="28" height="28" viewBox="0 0 24 24" fill="#0A66C2"><path d="M19 3A2 2 0 0 1 21 5V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V5A2 2 0 0 1 5 3H19M18.5 18.5V13.2A3.26 3.26 0 0 0 15.24 9.94C14.39 9.94 13.4 10.46 12.92 11.24V10.13H10.13V18.5H12.92V13.57C12.92 12.8 13.54 12.17 14.31 12.17A1.4 1.4 0 0 1 15.71 13.57V18.5H18.5M6.88 8.56A1.68 1.68 0 0 0 8.56 6.88C8.56 5.95 7.81 5.19 6.88 5.19A1.69 1.69 0 0 0 5.19 6.88C5.19 7.81 5.95 8.56 6.88 8.56M8.27 18.5V10.13H5.5V18.5H8.27Z"/></svg>',
       instagram: '<svg width="28" height="28" viewBox="0 0 24 24"><defs><radialGradient id="ig-official" cx="30%" cy="107%" r="150%"><stop offset="0%" stop-color="#fdf497"/><stop offset="5%" stop-color="#fdf497"/><stop offset="45%" stop-color="#fd5949"/><stop offset="60%" stop-color="#d6249f"/><stop offset="90%" stop-color="#285AEB"/></radialGradient></defs><rect x="2" y="2" width="20" height="20" rx="5.5" fill="url(#ig-official)"/><rect x="5.2" y="5.2" width="13.6" height="13.6" rx="3.8" fill="none" stroke="#FFFFFF" stroke-width="1.8"/><circle cx="12" cy="12" r="3.3" fill="none" stroke="#FFFFFF" stroke-width="1.8"/><circle cx="16.2" cy="7.8" r="1.1" fill="#FFFFFF"/></svg>',
       threads: '<svg width="28" height="28" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5.5" fill="#0F172A"/><path d="M15.7 11.4c-.1-.1-.3-.2-.4-.2-.2-2.2-1.4-3.5-3.6-3.5-1.3 0-2.4.5-3.1 1.5l1.2.8c.5-.7 1.1-1 1.9-1 1.3 0 2 .7 2.2 2-.7-.1-1.4-.2-2.2-.2-2.1 0-3.5 1.1-3.5 2.7 0 1.6 1.3 2.7 3.1 2.7 1.6 0 2.8-.7 3.3-2 .3-.6.4-1.3.4-2.1.5.3.8.8.8 1.4 0 1.6-1.4 2.9-3.6 2.9-2.5 0-4.3-1.7-4.3-4.3 0-2.6 1.8-4.4 4.3-4.4 2.1 0 3.7 1.2 4.1 3.1l1.4-.3C17.4 7.7 15.3 6 12.3 6 9 6 6.6 8.4 6.6 12c0 3.6 2.4 5.9 5.7 5.9 3 0 5-1.9 5-4.3 0-1-.5-1.8-1.6-2.2zm-4.1 3.4c-1 0-1.7-.5-1.7-1.3 0-.8.8-1.3 2.1-1.3.7 0 1.3.1 1.9.2-.1 1.5-1 2.4-2.3 2.4z" fill="#FFFFFF"/></svg>',
-      gmail: '<svg width="28" height="28" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="3.5" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/><path d="M4.5 18V9.2L12 14.8l7.5-5.6V18h-2.8v-5.3L12 16.2l-4.7-3.5V18H4.5z" fill="#EA4335"/><path d="M4.5 9.2V7.8c0-1.1 1.2-1.7 2.1-1L12 10.9l5.4-4.1c.9-.7 2.1-.1 2.1 1v1.4L12 14.8 4.5 9.2z" fill="#EA4335"/><path d="M4.5 9.2V18h2.8v-5.3L4.5 9.2z" fill="#4285F4"/><path d="M19.5 9.2V18h-2.8v-5.3l2.8-3.5z" fill="#34A853"/><path d="M16.7 7.3L19.5 9.2V7.8c0-1.1-1.2-1.7-2.1-1l-.7.5z" fill="#FBBC05"/></svg>',
       youtube: '<svg width="28" height="28" viewBox="0 0 24 24"><rect x="2" y="4.5" width="20" height="15" rx="4.5" fill="#FF0033"/><polygon points="10,8.5 16,12 10,15.5" fill="#FFFFFF"/></svg>',
       facebook: '<svg width="28" height="28" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#0866FF"/><path d="M15.1 12.7l.4-2.7h-2.6V8.3c0-.7.4-1.4 1.5-1.4h1.2V4.6s-1.1-.2-2.1-.2c-2.1 0-3.5 1.3-3.5 3.6v2H7.7v2.7h2.3v6.5h2.9v-6.5h2.2z" fill="#FFFFFF"/></svg>',
       x: '<svg width="28" height="28" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5.5" fill="#0F172A"/><path d="M13.3 10.9L17.8 5.7h-1.1l-3.9 4.5-3.1-4.5H6l4.7 6.8L6 18h1.1l4.1-4.8 3.3 4.8h3.7l-4.9-7.1zm-1.5 1.7l-.5-.7-3.8-5.4h1.6l3.1 4.4.5.7 4 5.7h-1.6l-3.3-4.7z" fill="#FFFFFF"/></svg>',
-      telegram: '<svg width="28" height="28" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#26A5E4"/><path d="M16.9 7.8L6.5 11.8c-.7.3-.7.7-.1.9l2.7.8 6.2-3.9c.3-.2.6-.1.3.1l-5 4.5-.2 2.8c.3 0 .4-.1.6-.3l1.3-1.3 2.7 2c.5.3.9.1 1-.5l1.8-8.5c.2-.7-.3-1-.9-.7z" fill="#FFFFFF"/></svg>',
       github: '<svg width="28" height="28" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#181717"/><path fill-rule="evenodd" clip-rule="evenodd" d="M12 6.2c-3.3 0-6 2.7-6 6 0 2.6 1.7 4.9 4.1 5.7.3.1.4-.1.4-.3v-1.1c-1.7.4-2-.8-2-.8-.3-.7-.7-.9-.7-.9-.6-.4 0-.4 0-.4.6 0 1 .7 1 .7.6 1 1.5.7 1.8.5.1-.4.2-.7.4-.9-1.3-.2-2.7-.7-2.7-3 0-.7.2-1.2.6-1.6-.1-.2-.3-.8.1-1.6 0 0 .5-.2 1.6.6.5-.1 1-.2 1.5-.2.5 0 1 .1 1.5.2 1.1-.8 1.6-.6 1.6-.6.3.8.1 1.4.1 1.6.4.4.6 1 .6 1.6 0 2.3-1.4 2.8-2.7 3 .2.2.4.6.4 1.2v1.7c0 .2.1.4.4.3 2.4-.8 4.1-3.1 4.1-5.7 0-3.3-2.7-6-6-6z" fill="#FFFFFF"/></svg>'
     };
-    let pageData = {}, allItems = [], activeCat = 'All', query = '';
+    let cfg = {}, allItems = [], activeCat = 'All', query = '';
 
     function buildCardsHtml(selectedId) {
       let list = selectedId ? allItems.filter(i => i.id === selectedId) : allItems;
@@ -151,86 +161,73 @@
         const btns = (item.buttons || []).map(b => {
           const rawTarget = b.file || b.url || '#';
           const cleanUrl = rawTarget.replace(/^\/+/, '');
-          const isExt = cleanUrl.startsWith('http') || cleanUrl.startsWith('mailto:');
+          const isExt = cleanUrl.startsWith('http');
           return `<a class="btn" href="${cleanUrl}" target="_blank" rel="noopener" ${isExt ? '' : 'download onclick="document.getElementById(\'dl-tip\').style.display=\'block\'"'}>${icon}<span>${b.label}</span></a>`;
         }).join('');
         return `<div id="${item.id}" class="card"><span class="badge">${item.badge || 'FREE RESOURCE'}</span><h2>${item.title}</h2><p>${item.description}</p>${btns}</div>`;
       }).join('');
     }
 
-        function renderAllSections(selectedId) {
-      const container = document.getElementById('dynamic-sections');
-      container.innerHTML = '';
-      const defaultOrder = [
-        { section: 'cards', enabled: true },
-        { section: 'viewAllBtn', enabled: true },
-        { section: 'consultation', enabled: Boolean(pageData.showConsultationCta) },
-        { section: 'portfolioBtn', enabled: pageData.showPortfolioLink !== false }
-      ];
-      const order = (pageData.sectionsOrder && pageData.sectionsOrder.length) ? pageData.sectionsOrder : defaultOrder;
-      const activeSections = order.filter(e => e.enabled !== false);
-      const consultOn = activeSections.some(e => e.section === 'consultation');
-
-      // When Consultation is OFF and both pills are active, place them side-by-side
-      if (!consultOn) {
-        let groupedPills = [];
-        activeSections.forEach(entry => {
-          if (entry.section === 'cards') {
-            container.innerHTML += buildCardsHtml(selectedId);
-          } else if (entry.section === 'viewAllBtn' && selectedId) {
-            groupedPills.push(`<a class="portfolio-pill" href="./"><span>${pageData.viewAllBtnText || 'View All Free Resources'}</span><span>→</span></a>`);
-          } else if (entry.section === 'portfolioBtn') {
-            groupedPills.push(`<a class="portfolio-pill" href="${pageData.portfolioUrl || 'https://github.io'}" target="_blank" rel="noopener"><span>${pageData.portfolioBtnText || 'View My Portfolio & CV'}</span><span>↗</span></a>`);
-          }
-        });
-        if (groupedPills.length) {
-          container.innerHTML += `<div class="pill-row">${groupedPills.join('')}</div>`;
-        }
-        return;
+    function buildConsultHtml() {
+      let mainBtn = cfg.showWhatsappBtn !== false
+        ? `<a class="btn" href="${cfg.whatsappUrl || '#'}" target="_blank" rel="noopener"><span>${cfg.whatsappBtnText || 'Chat on WhatsApp'}</span></a>`
+        : '';
+      let subBtns = [];
+      if (cfg.showEmailBtn !== false && cfg.emailAddress) {
+        subBtns.push(`<a class="contact-subbtn" href="mailto:${cfg.emailAddress}">✉️ <span>${cfg.emailBtnText || 'Send Email'}</span></a>`);
       }
-
-      // When Consultation is ON, keep each active section in its exact configured order
-      activeSections.forEach(entry => {
-        if (entry.section === 'cards') {
-          container.innerHTML += buildCardsHtml(selectedId);
-        } else if (entry.section === 'viewAllBtn' && selectedId) {
-          container.innerHTML += `<div class="pill-wrap"><a class="portfolio-pill" href="./"><span>${pageData.viewAllBtnText || 'View All Free Resources'}</span><span>→</span></a></div>`;
-        } else if (entry.section === 'consultation') {
-          container.innerHTML += `<div class="card consult-card"><span class="badge">${pageData.consultationBadge || '1-ON-1 CONSULTATION'}</span><h2>${pageData.consultationTitle || 'Need Tax, GST, or Excel Help?'}</h2><p>${pageData.consultationDesc || 'Book a 1-on-1 consultation or message directly on WhatsApp.'}</p><a class="btn" href="${pageData.consultationUrl || '#'}" target="_blank" rel="noopener"><span>${pageData.consultationBtnText || 'Chat on WhatsApp'}</span></a></div>`;
-        } else if (entry.section === 'portfolioBtn') {
-          container.innerHTML += `<div class="pill-wrap"><a class="portfolio-pill" href="${pageData.portfolioUrl || 'https://github.io'}" target="_blank" rel="noopener"><span>${pageData.portfolioBtnText || 'View My Portfolio & CV'}</span><span>↗</span></a></div>`;
-        }
-      });
+      if (cfg.showTelegramBtn && cfg.telegramUrl) {
+        subBtns.push(`<a class="contact-subbtn" href="${cfg.telegramUrl}" target="_blank" rel="noopener">✈️ <span>${cfg.telegramBtnText || 'Message on Telegram'}</span></a>`);
+      }
+      const subRow = subBtns.length ? `<div class="contact-subrow">${subBtns.join('')}</div>` : '';
+      return `<div class="card consult-card"><span class="badge">${cfg.consultationBadge || '1-ON-1 CONSULTATION & INQUIRIES'}</span><h2>${cfg.consultationTitle || 'Need Tax, GST, or Excel Help?'}</h2><p>${cfg.consultationDesc || 'Book a 1-on-1 consultation or reach out directly for custom systems.'}</p>${mainBtn}${subRow}</div>`;
     }
 
-    fetch('resources.json?v=' + Date.now()).then(r => r.json()).then(data => {
-      pageData = data;
-      if (data.profileImage) document.getElementById('profile-img').src = data.profileImage.replace(/^\/+/, '');
-      if (data.profileName) { document.getElementById('profile-name').textContent = data.profileName; document.getElementById('profile-img').alt = data.profileName; }
-      if (data.profileTagline) document.getElementById('profile-tagline').textContent = data.profileTagline;
+    function renderPage(selectedId) {
+      const container = document.getElementById('dynamic-sections');
+      container.innerHTML = buildCardsHtml(selectedId);
+      const consultOn = Boolean(cfg.showConsultationCta);
+      const showViewAll = Boolean(selectedId && cfg.showViewAllBtn !== false);
+      const showPortfolio = cfg.showPortfolioLink !== false;
 
-      if (data.showFooterSocials === false) {
+      if (!consultOn) {
+        let pills = [];
+        if (showViewAll) pills.push(`<a class="portfolio-pill" href="./"><span>${cfg.viewAllBtnText || 'View All Free Resources'}</span><span>→</span></a>`);
+        if (showPortfolio) pills.push(`<a class="portfolio-pill" href="${cfg.portfolioUrl || 'https://github.io'}" target="_blank" rel="noopener"><span>${cfg.portfolioBtnText || 'View My Portfolio & CV'}</span><span>↗</span></a>`);
+        if (pills.length) container.innerHTML += `<div class="pill-row">${pills.join('')}</div>`;
+      } else {
+        if (showViewAll) container.innerHTML += `<div class="pill-wrap"><a class="portfolio-pill" href="./"><span>${cfg.viewAllBtnText || 'View All Free Resources'}</span><span>→</span></a></div>`;
+        container.innerHTML += buildConsultHtml();
+        if (showPortfolio) container.innerHTML += `<div class="pill-wrap"><a class="portfolio-pill" href="${cfg.portfolioUrl || 'https://github.io'}" target="_blank" rel="noopener"><span>${cfg.portfolioBtnText || 'View My Portfolio & CV'}</span><span>↗</span></a></div>`;
+      }
+    }
+
+    Promise.all([
+      fetch('resources.json?v=' + Date.now()).then(r => r.json()),
+      fetch('settings.json?v=' + Date.now()).then(r => r.json()).catch(() => ({}))
+    ]).then(([resData, setData]) => {
+      cfg = Object.keys(setData).length ? setData : resData;
+      allItems = resData.items || [];
+
+      if (cfg.profileImage) document.getElementById('profile-img').src = cfg.profileImage.replace(/^\/+/, '');
+      if (cfg.profileName) { document.getElementById('profile-name').textContent = cfg.profileName; document.getElementById('profile-img').alt = cfg.profileName; }
+      if (cfg.profileTagline) document.getElementById('profile-tagline').textContent = cfg.profileTagline;
+
+      if (cfg.showFooterSocials === false) {
         document.getElementById('footer-section').style.display = 'none';
       } else {
-        if (data.footerText) document.getElementById('footer-label').textContent = data.footerText;
+        if (cfg.footerText) document.getElementById('footer-label').textContent = cfg.footerText;
         const socialsBox = document.getElementById('socials-container');
-        const list = (data.socialsList && data.socialsList.length) ? data.socialsList : [
-          { platform: 'instagram', enabled: true, url: data.instagramUrl || 'https://instagram.com' },
-          { platform: 'linkedin', enabled: true, url: data.linkedinUrl || 'https://linkedin.com' },
-          { platform: 'threads', enabled: true, url: data.threadsUrl || 'https://threads.net' }
-        ];
+        const list = (cfg.socialsList && cfg.socialsList.length) ? cfg.socialsList : [];
         list.forEach(s => {
           if (s.enabled !== false && socialIcons[s.platform] && s.url) {
-            const href = (s.platform === 'gmail' && !s.url.startsWith('mailto:') && !s.url.startsWith('http')) ? 'mailto:' + s.url : s.url;
-            socialsBox.innerHTML += `<a class="social-link" href="${href}" rel="noopener" aria-label="${s.platform}">${socialIcons[s.platform]}</a>`;
+            socialsBox.innerHTML += `<a class="social-link" href="${s.url}" rel="noopener" aria-label="${s.platform}">${socialIcons[s.platform]}</a>`;
           }
         });
       }
 
-      allItems = data.items || [];
       const selectedId = window.location.hash.replace('#', '');
-
-      if (!selectedId && data.showSearchFilter) {
+      if (!selectedId && cfg.showSearchFilter) {
         document.getElementById('search-section').style.display = 'block';
         const cats = ['All', ...new Set(allItems.map(i => i.category || 'General'))];
         const pillsBox = document.getElementById('cat-pills');
@@ -242,25 +239,18 @@
             activeCat = c;
             document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('active'));
             btn.classList.add('active');
-            renderAllSections('');
+            renderPage('');
           };
           pillsBox.appendChild(btn);
         });
         document.getElementById('search-input').oninput = e => {
           query = e.target.value.toLowerCase();
-          renderAllSections('');
+          renderPage('');
         };
       }
 
-      renderAllSections(selectedId);
+      renderPage(selectedId);
     });
   </script>
-  <script>
-    window.goatcounter = {
-      path: function(p) { return p + location.hash; }
-    };
-  </script>
-<img src="https://goatcounter.com" alt="" style="position:absolute;width:1px;height:1px;opacity:0;" />
 </body>
 </html>
-
