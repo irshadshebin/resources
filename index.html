@@ -226,16 +226,9 @@
       allItems = rD.items || [];
       prof = pD; cont = cD; nav = nD; foot = fD;
 
-      if (prof.profileImage) document.getElementById('profile-img').src = prof.profileImage.replace(/^\/+/, '');
-      if (prof.profileName) {
-        const parts = prof.profileName.split('|').map(s => s.trim());
-        const nameEl = document.getElementById('profile-name');
-        if (parts.length > 1) {
-          nameEl.innerHTML = `${parts}<span class="profile-pipe">|</span>${parts.slice(1).join(' | ')}`;
-        } else {
-          nameEl.textContent = prof.profileName;
-        }
-        document.getElementById('profile-img').alt = parts;
+            if (prof.profileName) {
+        document.getElementById('profile-name').innerHTML = prof.profileName.replace(/\|/g, '<span class="profile-pipe">|</span>');
+        document.getElementById('profile-img').alt = prof.profileName;
       }
       if (prof.profileTagline) document.getElementById('profile-tagline').textContent = prof.profileTagline;
 
