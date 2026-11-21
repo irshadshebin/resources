@@ -245,10 +245,18 @@
       allItems = resData.items || [];
 
       if (cfg.profileImage) document.getElementById('profile-img').src = cfg.profileImage.replace(/^\/+/, '');
-      if (cfg.profileName) { document.getElementById('profile-name').textContent = cfg.profileName; document.getElementById('profile-img').alt = cfg.profileName; }
-      if (cfg.profileTagline) document.getElementById('profile-tagline').textContent = cfg.profileTagline;
-
-      if (cfg.showFooterSocials === false) {
+      if (cfg.profileName) {
+        const parts = cfg.profileName.split('|').map(s => s.trim());
+        const nameEl = document.getElementById('profile-name');
+        if (parts.length > 1) {
+          nameEl.innerHTML = `${parts[0]}<br><span class="profile-role">${parts.slice(1).join(' • ')}</span>`;
+        } else {
+          nameEl.textContent = cfg.profileName;
+        }
+        document.getElementById('profile-img').alt = parts[0];
+      }
+     if (cfg.profileTagline) document.getElementById('profile-tagline').textContent = cfg.profileTagline;
+     if (cfg.showFooterSocials === false) {
         document.getElementById('footer-section').style.display = 'none';
       } else {
         if (cfg.footerText) document.getElementById('footer-label').textContent = cfg.footerText;
