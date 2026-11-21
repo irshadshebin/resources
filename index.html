@@ -244,15 +244,15 @@
       allItems = resData.items || [];
 
       if (cfg.profileImage) document.getElementById('profile-img').src = cfg.profileImage.replace(/^\/+/, '');
-      if (cfg.profileName) {
+            if (cfg.profileName) {
         const parts = cfg.profileName.split('|').map(s => s.trim());
         const nameEl = document.getElementById('profile-name');
         if (parts.length > 1) {
-          nameEl.innerHTML = `${parts[0]}<br><span class="profile-role">${parts.slice(1).join(' • ')}</span>`;
+          nameEl.innerHTML = `<span>${parts}</span><span class="profile-pipe">|</span><span>${parts.slice(1).join(' | ')}</span>`;
         } else {
           nameEl.textContent = cfg.profileName;
         }
-        document.getElementById('profile-img').alt = parts[0];
+        document.getElementById('profile-img').alt = parts;
       }
      if (cfg.profileTagline) document.getElementById('profile-tagline').textContent = cfg.profileTagline;
      if (cfg.showFooterSocials === false) {
