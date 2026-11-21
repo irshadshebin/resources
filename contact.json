@@ -12,7 +12,7 @@
       "channel": "whatsapp",
       "enabled": true,
       "label": "Chat on WhatsApp",
-      "value": "https://wa.me+918891530230"
+      "value": "https://wa.me/918891530230"
     },
     {
       "channel": "email",
