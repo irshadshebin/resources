@@ -6,7 +6,7 @@
   "consultationBadge": "1-ON-1 CONSULTATION & INQUIRIES",
   "consultationTitle": "Need Tax, GST, or Excel Help?",
   "consultationDesc": "Book a 1-on-1 consultation or reach out directly for custom systems.",
-  "showDirectContact": true,
+  "showDirectContact": false,
   "contactCardBadge": "DIRECT CONTACT",
   "contactCardTitle": "Have a Question or Inquiry?",
   "contactCardDesc": "Reach out directly via WhatsApp, Email, or Telegram.",
