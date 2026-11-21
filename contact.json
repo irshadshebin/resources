@@ -8,8 +8,23 @@
   "contactCardTitle": "Have a Question or Inquiry?",
   "contactCardDesc": "Reach out directly via WhatsApp, Email, or Telegram.",
   "contactList": [
-    { "channel": "whatsapp", "enabled": true, "label": "Chat on WhatsApp", "value": "https://wa.me" },
-    { "channel": "email", "enabled": true, "label": "Send Email", "value": "irshadsbn7@gmail.com" },
-    { "channel": "telegram", "enabled": true, "label": "Message on Telegram", "value": "https://t.me" }
+    {
+      "channel": "whatsapp",
+      "enabled": true,
+      "label": "Chat on WhatsApp",
+      "value": "https://wa.me+918891530230"
+    },
+    {
+      "channel": "email",
+      "enabled": true,
+      "label": "Send Email",
+      "value": "irshadsbn7@gmail.com"
+    },
+    {
+      "channel": "telegram",
+      "enabled": false,
+      "label": "Message on Telegram",
+      "value": "https://t.me"
+    }
   ]
 }
