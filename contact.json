@@ -6,7 +6,7 @@
   "showDirectContact": true,
   "contactCardBadge": "DIRECT CONTACT",
   "contactCardTitle": "Have a Question or Inquiry?",
-  "contactCardDesc": "Reach out directly via WhatsApp, Email, or Telegram.",
+  "contactCardDesc": "Reach out directly via Email.",
   "contactList": [
     {
       "channel": "whatsapp",
